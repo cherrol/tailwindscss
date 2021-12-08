@@ -1,0 +1,11 @@
+/*
+ * Border collapse
+**/
+@include tw-border-collapse(collapse, collapse);
+@include tw-border-collapse(separate, separate);
+
+/*
+ * Table layout
+**/
+@include tw-table-layout(auto, auto);
+@include tw-table-layout(fixed, fixed);

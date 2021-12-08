@@ -1,0 +1,38 @@
+/*
+ * Border collapse
+**/
+@include tw-transform-origin(center, center);
+@include tw-transform-origin(left, left);
+@include tw-transform-origin(right, right);
+@include tw-transform-origin(top, top);
+@include tw-transform-origin(bottom, bottom);
+@include tw-transform-origin(top-left, 'top left');
+@include tw-transform-origin(top-right, 'top right');
+@include tw-transform-origin(bottom-left, 'bottom left');
+@include tw-transform-origin(bottom-right, 'bottom right');
+
+/*
+ * Transform scale
+**/
+@include tw-transform-scale(105, 1.05, $hover: true);
+
+/*
+ * Transform rotate
+**/
+@include tw-transform-rotate(90, 90deg, $hover: true, $minus: true);
+@include tw-transform-rotate(180, 180deg, $hover: true, $minus: true);
+@include tw-transform-rotate(360, 360deg, $hover: true, $minus: true);
+
+/*
+ * Transform translate
+**/
+@include tw-transform-translate(0, 0);
+@include tw-transform-translate(('1\\/2'), 50%, $minus: true);
+@include tw-transform-translate(full, 100%, $minus: true);
+@each $screenName, $screenValue in $screens {
+  @media (min-width: $screenValue) {
+    @include tw-transform-translate(0, 0, $screens: $screenName);
+    @include tw-transform-translate('1\\/2', 50%, $minus: true, $screens: $screenName);
+    @include tw-transform-translate(full, 100%, $minus: true, $screens: $screenName);
+  }
+}

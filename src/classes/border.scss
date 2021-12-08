@@ -1,0 +1,41 @@
+/*
+ * Border radius
+**/
+@include tw-border-radius(1, 1px);
+@include tw-border-radius(2, 2px);
+@include tw-border-radius(3, 3px);
+@include tw-border-radius(4, 4px);
+@include tw-border-radius(5, 5px);
+@include tw-border-radius(full, 9999px);
+
+/*
+ * Border width
+**/
+@include tw-border-width(0, 0px);
+@include tw-border-width(1, 1px);
+@include tw-border-width(2, 2px);
+@include tw-border-width(3, 3px);
+@include tw-border-width(4, 4px);
+@include tw-border-width(5, 5px);
+@include tw-border-width(6, 6px);
+
+/*
+ * Border color
+**/
+@include tw-border-color(base, $border-color);
+@include tw-border-color(dark, $border-color-dark);
+@include tw-border-color(darker, $border-color-darker);
+@include tw-border-color(white, #fff);
+@include tw-border-color(black, #000);
+@include tw-border-color(primary, $site-base);
+@include tw-border-color(second, $site-second);
+@include tw-border-color(third, $site-third);
+
+/*
+ * Border style
+**/
+@include tw-border-style(solid, solid);
+@include tw-border-style(dashed, dashed);
+@include tw-border-style(dotted, dotted);
+@include tw-border-style(double, double);
+@include tw-border-style(none, none);

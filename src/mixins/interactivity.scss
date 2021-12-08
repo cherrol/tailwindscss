@@ -1,0 +1,35 @@
+/*
+* Cursor
+**/
+@mixin tw-corsor($selector, $value, $hover: false, $focus: false, $screens: false) {
+  @include tw-mixins('corsor-#{$selector}', cursor, $value, $hover, $focus, $screens);
+}
+
+/*
+* Outline
+**/
+@mixin tw-outline($selector, $value, $hover: false, $focus: false, $screens: false) {
+  @include tw-mixins('outline-#{$selector}', outline, '#{$outline-size-default} solid #{$value}', $hover, $focus, $screens);
+  @include tw-mixins('outline-#{$selector}', outline-offset, $outline-size-default, $hover, $focus, $screens);
+}
+
+/*
+* Pointer events
+**/
+@mixin tw-pointer-events($selector, $value, $hover: false, $focus: false, $screens: false) {
+  @include tw-mixins('pointer-events-#{$selector}', pointer-events, $value, $hover, $focus, $screens);
+}
+
+/*
+* Resize
+**/
+@mixin tw-resize($selector, $value, $hover: false, $focus: false, $screens: false) {
+  @include tw-mixins($selector, resize, $value, $hover, $focus, $screens);
+}
+
+/*
+* User select
+**/
+@mixin tw-user-select($selector, $value, $hover: false, $focus: false, $screens: false) {
+  @include tw-mixins('select-#{$selector}', user-select, $value, $hover, $focus, $screens);
+}

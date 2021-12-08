@@ -1,0 +1,117 @@
+/*
+ * Box sizing
+**/
+@mixin tw-box-sizing($selector, $value, $hover: false, $focus: false, $screens: false) {
+  @include tw-mixins('box-#{$selector}', box-sizing, $value, $hover, $focus, $screens);
+}
+
+/*
+ * Display
+**/
+@mixin tw-display($selector, $value, $hover: false, $focus: false, $screens: false) {
+  @include tw-mixins($selector, display, $value, $hover, $focus, $screens);
+}
+
+/*
+ * Float
+**/
+@mixin tw-float($selector, $value, $hover: false, $focus: false, $screens: false) {
+  @include tw-mixins('float-#{$selector}', float, $value, $hover, $focus, $screens);
+}
+
+/*
+ * Clear
+**/
+@mixin tw-clear($selector, $value, $hover: false, $focus: false, $screens: false) {
+  @include tw-mixins('clear-#{$selector}', clear, $value, $hover, $focus, $screens);
+}
+
+/*
+ * Object fit
+**/
+@mixin tw-object-fit($selector, $value, $hover: false, $focus: false, $screens: false) {
+  @include tw-mixins('object-#{$selector}', object-fit, $value, $hover, $focus, $screens);
+}
+
+/*
+ * Object position
+**/
+@mixin tw-object-position($selector, $value, $hover: false, $focus: false, $screens: false) {
+  @include tw-mixins('object-#{$selector}', object-position, $value, $hover, $focus, $screens);
+}
+
+/*
+ * overflow
+**/
+@mixin tw-overflow($selector, $value, $hover: false, $focus: false, $screens: false, $important: false) {
+  @include tw-mixins('overflow-#{$selector}', overflow, $value, $hover, $focus, $screens);
+  @include tw-mixins('overflow-x-#{$selector}', overflow-x, $value, $hover, $focus, $screens);
+  @include tw-mixins('overflow-y-#{$selector}', overflow-y, $value, $hover, $focus, $screens);
+}
+@mixin tw-overflow($selector, $value, $hover: false, $focus: false, $screens: false, $important: false) when ($important) {
+  @include tw-mixins('overflow-#{$selector}\!', overflow, '#{$value} !important', $hover, $focus, $screens);
+  @include tw-mixins('overflow-x-#{$selector}\!', overflow-x, '#{$value} !important', $hover, $focus, $screens);
+  @include tw-mixins('overflow-y-#{$selector}\!', overflow-y, '#{$value} !important', $hover, $focus, $screens);
+}
+
+/*
+ * Position
+**/
+@mixin tw-position($selector, $value, $hover: false, $focus: false, $screens: false) {
+  @include tw-mixins('#{$selector}', position, $value, $hover, $focus, $screens);
+}
+
+/*
+ * Position inset
+**/
+@mixin tw-position-inset($selector, $value, $hover: false, $focus: false, $screens: false, $minus: false) {
+  @include tw-mixins('left-#{$selector}', left, $value, $hover, $focus, $screens);
+  @include tw-mixins('right-#{$selector}', right, $value, $hover, $focus, $screens);
+  @include tw-mixins('top-#{$selector}', top, $value, $hover, $focus, $screens);
+  @include tw-mixins('bottom-#{$selector}', bottom, $value, $hover, $focus, $screens);
+
+  @include tw-mixins('inset-x-#{$selector}', left, $value, $hover, $focus, $screens);
+  @include tw-mixins('inset-x-#{$selector}', right, $value, $hover, $focus, $screens);
+
+  @include tw-mixins('inset-y-#{$selector}', top, $value, $hover, $focus, $screens);
+  @include tw-mixins('inset-y-#{$selector}', bottom, $value, $hover, $focus, $screens);
+
+  @include tw-mixins('inset-#{$selector}', left, $value, $hover, $focus, $screens);
+  @include tw-mixins('inset-#{$selector}', right, $value, $hover, $focus, $screens);
+  @include tw-mixins('inset-#{$selector}', top, $value, $hover, $focus, $screens);
+  @include tw-mixins('inset-#{$selector}', bottom, $value, $hover, $focus, $screens);
+}
+@mixin tw-position-inset($selector, $value, $hover: false, $focus: false, $screens: false, $minus: false) when ($minus) {
+  @include tw-mixins('-left-#{$selector}', left, '-#{$value}', $hover, $focus, $screens);
+  @include tw-mixins('-right-#{$selector}', right, '-#{$value}', $hover, $focus, $screens);
+  @include tw-mixins('-top-#{$selector}', top, '-#{$value}', $hover, $focus, $screens);
+  @include tw-mixins('-bottom-#{$selector}', bottom, '-#{$value}', $hover, $focus, $screens);
+
+  @include tw-mixins('-inset-x-#{$selector}', left, '-#{$value}', $hover, $focus, $screens);
+  @include tw-mixins('-inset-x-#{$selector}', right, '-#{$value}', $hover, $focus, $screens);
+
+  @include tw-mixins('-inset-y-#{$selector}', top, '-#{$value}', $hover, $focus, $screens);
+  @include tw-mixins('-inset-y-#{$selector}', bottom, '-#{$value}', $hover, $focus, $screens);
+
+  @include tw-mixins('-inset-#{$selector}', left, '-#{$value}', $hover, $focus, $screens);
+  @include tw-mixins('-inset-#{$selector}', right, '-#{$value}', $hover, $focus, $screens);
+  @include tw-mixins('-inset-#{$selector}', top, '-#{$value}', $hover, $focus, $screens);
+  @include tw-mixins('-inset-#{$selector}', bottom, '-#{$value}', $hover, $focus, $screens);
+}
+
+/*
+ * Visibility
+**/
+@mixin tw-visibility($selector, $value, $hover: false, $focus: false, $screens: false) {
+  @include tw-mixins('#{$selector}', visibility, $value, $hover, $focus, $screens);
+}
+
+/*
+ * Z-index
+**/
+@mixin tw-z-index($selector, $value, $hover: false, $focus: false, $screens: false, $minus: false) {
+  @include tw-mixins('z-#{$selector}', z-index, $value, $hover, $focus, $screens);
+}
+@mixin tw-z-index($selector, $value, $hover: false, $focus: false, $screens: false, $minus: false) when ($minus) {
+  @include tw-mixins('-z-#{$selector}', z-index, '-#{$value}', $hover, $focus, $screens);
+}

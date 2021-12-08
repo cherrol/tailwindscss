@@ -1,0 +1,36 @@
+/*
+ * Transition
+**/
+@mixin tw-transition-duration($selector, $value, $hover: false, $focus: false, $screens: false) {
+  @include tw-mixins('duration-#{$selector}', transition-duration, $value, $hover, $focus, $screens);
+}
+
+/*
+ * Transition timing function
+**/
+@mixin tw-transition-timing-function($selector, $value, $hover: false, $focus: false, $screens: false) {
+  @include tw-mixins($selector, transition-timing-function, $value, $hover, $focus, $screens);
+}
+
+/*
+ * Transition delay
+**/
+@mixin tw-transition-delay($selector, $value, $hover: false, $focus: false, $screens: false) {
+  @include tw-mixins('delay-#{$selector}', transition-delay, $value, $hover, $focus, $screens);
+}
+
+/*
+ * Transitions
+**/
+@mixin tw-transitions($selector, $value, $hover: false, $focus: false, $screens: false) {
+  @include tw-mixins('transition-#{$selector}', transition-property, $value, $hover, $focus, $screens);
+  @include tw-mixins('transition-#{$selector}', transition-timing-function, $transition-timing-function-default, $hover, $focus, $screens);
+  @include tw-mixins('transition-#{$selector}', transition-duration, $transition-duration-default, $hover, $focus, $screens);
+}
+
+/*
+ * Animation
+**/
+@mixin tw-animation($selector, $value, $hover: false, $focus: false, $screens: false) {
+  @include tw-mixins('animate-#{$selector}', animation, $value, $hover, $focus, $screens);
+}

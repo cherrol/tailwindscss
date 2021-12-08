@@ -1,0 +1,13 @@
+/*
+ * Box shadow
+**/
+@mixin tw-box-shadow($selector, $value, $hover: false, $focus: false, $screens: false) {
+  @include tw-mixins('shadow-#{$selector}', box-shadow, $value, $hover, $focus, $screens);
+}
+
+/*
+ * Opacity
+**/
+@mixin tw-opacity($selector, $value, $hover: false, $focus: false, $screens: false) {
+  @include tw-mixins('opacity-#{$selector}', opacity, $value, $hover, $focus, $screens);
+}

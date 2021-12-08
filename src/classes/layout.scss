@@ -1,0 +1,203 @@
+/*
+ * Box sizing
+**/
+@include tw-box-sizing(border, border-box);
+@include tw-box-sizing(content, content-box);
+
+/*
+ * Display
+**/
+@include tw-display(hidden, none);
+@include tw-display(display-block, block);
+@include tw-display(inline, inline);
+@include tw-display(inline-block, inline-block);
+@include tw-display(flex, flex);
+@include tw-display(inline-flex, inline-flex);
+@include tw-display(table, table);
+@include tw-display(inline-table, inline-table);
+@media (min-width: $screen-sm) {
+  $screens: 'sm';
+  @include tw-display(hidden, none, $screens: $screens);
+  @include tw-display(display-block, block, $screens: $screens);
+  @include tw-display(inline, inline, $screens: $screens);
+  @include tw-display(inline-block, inline-block, $screens: $screens);
+  @include tw-display(flex, flex, $screens: $screens);
+  @include tw-display(inline-flex, inline-flex, $screens: $screens);
+  @include tw-display(table, table, $screens: $screens);
+  @include tw-display(inline-table, inline-table, $screens: $screens);
+}
+@media (min-width: $screen-md) {
+  $screens: 'md';
+  @include tw-display(hidden, none, $screens: $screens);
+  @include tw-display(display-block, block, $screens: $screens);
+  @include tw-display(inline, inline, $screens: $screens);
+  @include tw-display(inline-block, inline-block, $screens: $screens);
+  @include tw-display(flex, flex, $screens: $screens);
+  @include tw-display(inline-flex, inline-flex, $screens: $screens);
+  @include tw-display(table, table, $screens: $screens);
+  @include tw-display(inline-table, inline-table, $screens: $screens);
+}
+@media (min-width: $screen-lg) {
+  $screens: 'lg';
+  @include tw-display(hidden, none, $screens: $screens);
+  @include tw-display(display-block, block, $screens: $screens);
+  @include tw-display(inline, inline, $screens: $screens);
+  @include tw-display(inline-block, inline-block, $screens: $screens);
+  @include tw-display(flex, flex, $screens: $screens);
+  @include tw-display(inline-flex, inline-flex, $screens: $screens);
+  @include tw-display(table, table, $screens: $screens);
+  @include tw-display(inline-table, inline-table, $screens: $screens);
+}
+@media (min-width: $screen-xl) {
+  $screens: 'xl';
+  @include tw-display(hidden, none, $screens: $screens);
+  @include tw-display(display-block, block, $screens: $screens);
+  @include tw-display(inline, inline, $screens: $screens);
+  @include tw-display(inline-block, inline-block, $screens: $screens);
+  @include tw-display(flex, flex, $screens: $screens);
+  @include tw-display(inline-flex, inline-flex, $screens: $screens);
+  @include tw-display(table, table, $screens: $screens);
+  @include tw-display(inline-table, inline-table, $screens: $screens);
+}
+
+/*
+ * Float
+**/
+@include tw-float(left, left);
+@include tw-float(right, right);
+@include tw-float(none, none);
+
+/*
+ * Clear
+**/
+@include tw-clear(left, left);
+@include tw-clear(right, right);
+@include tw-clear(both, both);
+@include tw-clear(none, none);
+
+/*
+ * Object fit
+**/
+@include tw-object-fit(contain, contain);
+@include tw-object-fit(cover, cover);
+@include tw-object-fit(fill, fill);
+@include tw-object-fit(none, none);
+@include tw-object-fit(scale-down, scale-down);
+
+/*
+ * Object position
+**/
+@include tw-object-position(bottom, bottom);
+@include tw-object-position(center, center);
+@include tw-object-position(left, left);
+@include tw-object-position(right, right);
+@include tw-object-position(top, top);
+@include tw-object-position(left-bottom, 'left bottom');
+@include tw-object-position(left-top, 'left top');
+@include tw-object-position(right-bottom, 'right bottom');
+@include tw-object-position(right-top, 'right top');
+
+/*
+ * overflow
+**/
+@include tw-overflow(auto, auto);
+@include tw-overflow(hidden, hidden, $important: true);
+@include tw-overflow(scroll, scroll);
+@include tw-overflow(visible, visible);
+
+/*
+ * Position
+**/
+@include tw-position(static, static);
+@include tw-position(fixed, fixed);
+@include tw-position(absolute, absolute);
+@include tw-position(relative, relative);
+@include tw-position(sticky, sticky);
+@media (min-width: $screen-sm) {
+  $screens: 'sm';
+  @include tw-position(static, static, $screens: $screens);
+  @include tw-position(fixed, fixed, $screens: $screens);
+  @include tw-position(absolute, absolute, $screens: $screens);
+  @include tw-position(relative, relative, $screens: $screens);
+  @include tw-position(sticky, sticky, $screens: $screens);
+}
+@media (min-width: $screen-md) {
+  $screens: 'md';
+  @include tw-position(static, static, $screens: $screens);
+  @include tw-position(fixed, fixed, $screens: $screens);
+  @include tw-position(absolute, absolute, $screens: $screens);
+  @include tw-position(relative, relative, $screens: $screens);
+  @include tw-position(sticky, sticky, $screens: $screens);
+}
+@media (min-width: $screen-lg) {
+  $screens: 'lg';
+  @include tw-position(static, static, $screens: $screens);
+  @include tw-position(fixed, fixed, $screens: $screens);
+  @include tw-position(absolute, absolute, $screens: $screens);
+  @include tw-position(relative, relative, $screens: $screens);
+  @include tw-position(sticky, sticky, $screens: $screens);
+}
+@media (min-width: $screen-xl) {
+  $screens: 'xl';
+  @include tw-position(static, static, $screens: $screens);
+  @include tw-position(fixed, fixed, $screens: $screens);
+  @include tw-position(absolute, absolute, $screens: $screens);
+  @include tw-position(relative, relative, $screens: $screens);
+  @include tw-position(sticky, sticky, $screens: $screens);
+}
+
+/*
+ * Position inset
+**/
+@include tw-position-inset(0, 0px);
+@include tw-position-inset(auto, auto);
+@include tw-position-inset('1\/2', 50%, $minus: true);
+@include tw-position-inset(full, 100%, $minus: true);
+@media (min-width: $screen-sm) {
+  $screens: 'sm';
+  @include tw-position-inset(0, 0px, $screens: $screens);
+  @include tw-position-inset(auto, auto, $screens: $screens);
+  @include tw-position-inset('1\/2', 50%, $minus: true, $screens: $screens);
+  @include tw-position-inset(full, 100%, $minus: true, $screens: $screens);
+}
+@media (min-width: $screen-md) {
+  $screens: 'md';
+  @include tw-position-inset(0, 0px, $screens: $screens);
+  @include tw-position-inset(auto, auto, $screens: $screens);
+  @include tw-position-inset('1\/2', 50%, $minus: true, $screens: $screens);
+  @include tw-position-inset(full, 100%, $minus: true, $screens: $screens);
+}
+@media (min-width: $screen-lg) {
+  $screens: 'lg';
+  @include tw-position-inset(0, 0px, $screens: $screens);
+  @include tw-position-inset(auto, auto, $screens: $screens);
+  @include tw-position-inset('1\/2', 50%, $minus: true, $screens: $screens);
+  @include tw-position-inset(full, 100%, $minus: true, $screens: $screens);
+}
+@media (min-width: $screen-xl) {
+  $screens: 'xl';
+  @include tw-position-inset(0, 0px, $screens: $screens);
+  @include tw-position-inset(auto, auto, $screens: $screens);
+  @include tw-position-inset('1\/2', 50%, $minus: true, $screens: $screens);
+  @include tw-position-inset(full, 100%, $minus: true, $screens: $screens);
+}
+
+/*
+ * Visibility
+**/
+@include tw-visibility(visible, visible);
+@include tw-visibility(invisible, hidden);
+
+@include tw-z-index(0, 0, $hover: true);
+@include tw-z-index(1, 1, $hover: true, $minus: true);
+@include tw-z-index(2, 2, $hover: true);
+@include tw-z-index(3, 3, $hover: true);
+@include tw-z-index(4, 4, $hover: true);
+@include tw-z-index(5, 5, $hover: true);
+@include tw-z-index(6, 6, $hover: true);
+@include tw-z-index(7, 7, $hover: true);
+@include tw-z-index(8, 8, $hover: true);
+@include tw-z-index(9, 9, $hover: true);
+@include tw-z-index(10, 10, $hover: true);
+@include tw-z-index(100, 100, $hover: true);
+@include tw-z-index(auto, auto, $hover: true);

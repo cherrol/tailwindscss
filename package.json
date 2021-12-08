@@ -1,0 +1,21 @@
+{
+  "name": "tailwindless",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.less",
+  "scripts": {
+    "watch": "rimraf dist/ && chokidar \"src/**/*.scss\" -c \"node-sass src/index.scss dist/index.css --source-map=dist/index.css.map\" --initial",
+    "build": "rimraf dist/ && node-sass src/index.scss dist/index.css --output-style=compressed",
+    "fmt": "prettier -w src/",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "chokidar-cli": "^3.0.0",
+    "node-sass": "^7.0.0",
+    "prettier": "^2.5.1",
+    "rimraf": "^3.0.2"
+  }
+}

@@ -1,0 +1,163 @@
+/*
+ * Flex direction
+**/
+@include tw-flex-direction(row, row);
+@include tw-flex-direction(row-reverse, row-reverse);
+@include tw-flex-direction(col, column);
+@include tw-flex-direction(col-reverse, column-reverse);
+
+/*
+ * Flex wrap
+**/
+@include tw-flex-wrap(wrap, wrap);
+@include tw-flex-wrap(wrap-reverse, wrap-reverse);
+@include tw-flex-wrap(nowrap, nowrap);
+// With responsive
+@media (min-width: $screen-sm) {
+  $screens: 'sm';
+  @include tw-flex-wrap(wrap, wrap, $screens: $screens);
+  @include tw-flex-wrap(wrap-reverse, wrap-reverse, $screens: $screens);
+  @include tw-flex-wrap(nowrap, nowrap, $screens: $screens);
+}
+@media (min-width: $screen-md) {
+  $screens: 'md';
+  @include tw-flex-wrap(wrap, wrap, $screens: $screens);
+  @include tw-flex-wrap(wrap-reverse, wrap-reverse, $screens: $screens);
+  @include tw-flex-wrap(nowrap, nowrap, $screens: $screens);
+}
+@media (min-width: $screen-lg) {
+  $screens: 'lg';
+  @include tw-flex-wrap(wrap, wrap, $screens: $screens);
+  @include tw-flex-wrap(wrap-reverse, wrap-reverse, $screens: $screens);
+  @include tw-flex-wrap(nowrap, nowrap, $screens: $screens);
+}
+@media (min-width: $screen-xl) {
+  $screens: 'xl';
+  @include tw-flex-wrap(wrap, wrap, $screens: $screens);
+  @include tw-flex-wrap(wrap-reverse, wrap-reverse, $screens: $screens);
+  @include tw-flex-wrap(nowrap, nowrap, $screens: $screens);
+}
+
+/*
+ * Justify content
+**/
+@include tw-justify-content(start, flex-start);
+@include tw-justify-content(end, flex-end);
+@include tw-justify-content(center, center);
+@include tw-justify-content(between, space-between);
+@include tw-justify-content(around, space-around);
+@include tw-justify-content(evenly, space-evenly);
+
+/*
+ * Align content
+**/
+@include tw-align-content(start, flex-start);
+@include tw-align-content(end, flex-end);
+@include tw-align-content(center, center);
+@include tw-align-content(between, space-between);
+@include tw-align-content(around, space-around);
+@include tw-align-content(evenly, space-evenly);
+
+/*
+ * Place content
+**/
+@include tw-place-content(start, flex-start);
+@include tw-place-content(end, flex-end);
+@include tw-place-content(center, center);
+@include tw-place-content(between, space-between);
+@include tw-place-content(around, space-around);
+@include tw-place-content(evenly, space-evenly);
+@include tw-place-content(stretch, stretch);
+
+/*
+* Align items
+*/
+@include tw-align-items(start, flex-start);
+@include tw-align-items(end, flex-end);
+@include tw-align-items(center, center);
+@include tw-align-items(baseline, baseline);
+@include tw-align-items(stretch, stretch);
+
+/*
+* Align Self
+*/
+@include tw-align-self(start, flex-start);
+@include tw-align-self(end, flex-end);
+@include tw-align-self(center, center);
+@include tw-align-self(baseline, baseline);
+@include tw-align-self(stretch, stretch);
+
+/*
+* Align self
+*/
+@include tw-justify-items(start, start);
+@include tw-justify-items(end, end);
+@include tw-justify-items(center, center);
+@include tw-justify-items(auto, auto);
+@include tw-justify-items(stretch, stretch);
+
+/*
+* Justify self
+*/
+@include tw-justify-self(start, start);
+@include tw-justify-self(end, end);
+@include tw-justify-self(center, center);
+@include tw-justify-self(auto, auto);
+@include tw-justify-self(stretch, stretch);
+
+/*
+  * Place items
+ **/
+@include tw-place-items(start, start);
+@include tw-place-items(end, end);
+@include tw-place-items(center, center);
+@include tw-place-items(auto, auto);
+@include tw-place-items(stretch, stretch);
+
+/*
+* Place self
+*/
+@include tw-place-self(start, start);
+@include tw-place-self(end, end);
+@include tw-place-self(center, center);
+@include tw-place-self(auto, auto);
+@include tw-place-self(stretch, stretch);
+
+/*
+* Flex grow
+*/
+@include tw-flex-grow(grow-0, 0);
+@include tw-flex-grow(grow, 1);
+
+/*
+ * Flex shrink
+**/
+@include tw-flex-shrink(shrink-0, 0);
+@include tw-flex-shrink(shrink, 1);
+
+/*
+ * Flex
+**/
+@include tw-flex(1, '1 1 0%');
+@include tw-flex(auto, '1 1 auto');
+@include tw-flex(initial, '0 1 auto');
+@include tw-flex(none, none);
+
+/*
+ * Order
+**/
+@include tw-order(1, 1);
+@include tw-order(2, 2);
+@include tw-order(3, 3);
+@include tw-order(4, 4);
+@include tw-order(5, 5);
+@include tw-order(6, 6);
+@include tw-order(7, 7);
+@include tw-order(8, 8);
+@include tw-order(9, 9);
+@include tw-order(10, 10);
+@include tw-order(11, 11);
+@include tw-order(12, 12);
+@include tw-order(first, -9999);
+@include tw-order(last, 9999);
+@include tw-order(none, none);

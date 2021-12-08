@@ -1,0 +1,56 @@
+/*
+ * Mixins
+ * $selector    选择器
+ * $property    属性
+ * [$value]     属性值
+ * [$hover]     hover选择器
+ * [$focus]     focus选择器
+ * [$screens]   媒体查询选择器
+**/
+@mixin tw-mixins($selector, $properties-values, $hover: false, $focus: false, $screens: false) {
+  @if $screens == false {
+    .#{$selector} {
+      @each $property, $value in $properties-values {
+        #{$property}: $value;
+      }
+    }
+
+    @if $hover {
+      .hover#{$separator}#{$selector}:hover {
+        @each $property, $value in $properties-values {
+          #{$property}: $value;
+        }
+      }
+    }
+
+    @if $focus {
+      .focus#{$separator}#{$selector}:focus {
+        @each $property, $value in $properties-values {
+          #{$property}: $value;
+        }
+      }
+    }
+  } @else {
+    .#{$screens}#{$separator}#{$selector} {
+      @each $property, $value in $properties-values {
+        #{$property}: $value;
+      }
+    }
+
+    @if $hover {
+      .#{$screens}#{$separator}hover#{$separator}#{$selector}:hover {
+        @each $property, $value in $properties-values {
+          #{$property}: $value;
+        }
+      }
+    }
+
+    @if $focus {
+      .#{$screens}#{$separator}focus#{$separator}#{$selector}:focus {
+        @each $property, $value in $properties-values {
+          #{$property}: $value;
+        }
+      }
+    }
+  }
+}

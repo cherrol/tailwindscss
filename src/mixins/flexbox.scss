@@ -1,0 +1,104 @@
+/*
+ * Flex direction
+**/
+@mixin tw-flex-direction($selector, $value, $hover: false, $focus: false, $screens: false) {
+  @include tw-mixins('flex-#{$selector}', flex-direction, $value, $hover, $focus, $screens);
+}
+
+/*
+ * Flex direction
+**/
+@mixin tw-flex-wrap($selector, $value, $hover: false, $focus: false, $screens: false) {
+  @include tw-mixins('flex-#{$selector}', flex-wrap, $value, $hover, $focus, $screens);
+}
+
+/*
+ * Justify content
+**/
+@mixin tw-justify-content($selector, $value, $hover: false, $focus: false, $screens: false) {
+  @include tw-mixins('justify-#{$selector}', justify-content, $value, $hover, $focus, $screens);
+}
+
+/*
+ * Justify items
+**/
+@mixin tw-justify-items($selector, $value, $hover: false, $focus: false, $screens: false) {
+  @include tw-mixins('justify-items-#{$selector}', justify-items, $value, $hover, $focus, $screens);
+}
+
+/*
+ * Justify self
+**/
+@mixin tw-justify-self($selector, $value, $hover: false, $focus: false, $screens: false) {
+  @include tw-mixins('justify-self-#{$selector}', justify-self, $value, $hover, $focus, $screens);
+}
+
+/*
+ * Align content
+**/
+@mixin tw-align-content($selector, $value, $hover: false, $focus: false, $screens: false) {
+  @include tw-mixins('content-#{$selector}', align-content, $value, $hover, $focus, $screens);
+}
+
+/*
+ * Align items
+**/
+@mixin tw-align-items($selector, $value, $hover: false, $focus: false, $screens: false) {
+  @include tw-mixins('items-#{$selector}', align-items, $value, $hover, $focus, $screens);
+}
+
+/*
+ * Align self
+**/
+@mixin tw-align-self($selector, $value, $hover: false, $focus: false, $screens: false) {
+  @include tw-mixins('self-#{$selector}', align-self, $value, $hover, $focus, $screens);
+}
+
+/*
+ * Place content
+**/
+@mixin tw-place-content($selector, $value, $hover: false, $focus: false, $screens: false) {
+  @include tw-mixins('place-content-#{$selector}', place-content, $value, $hover, $focus, $screens);
+}
+
+/*
+ * Place items
+**/
+@mixin tw-place-items($selector, $value, $hover: false, $focus: false, $screens: false) {
+  @include tw-mixins('place-items-#{$selector}', place-items, $value, $hover, $focus, $screens);
+}
+
+/*
+ * Place self
+**/
+@mixin tw-place-self($selector, $value, $hover: false, $focus: false, $screens: false) {
+  @include tw-mixins('place-self-#{$selector}', place-self, $value, $hover, $focus, $screens);
+}
+
+/*
+ * Flex
+**/
+@mixin tw-flex($selector, $value, $hover: false, $focus: false, $screens: false) {
+  @include tw-mixins('flex-#{$selector}', flex, $value, $hover, $focus, $screens);
+}
+
+/*
+ * Flex shrink
+**/
+@mixin tw-flex-shrink($selector, $value, $hover: false, $focus: false, $screens: false) {
+  @include tw-mixins('flex-#{$selector}', flex, $value, $hover, $focus, $screens);
+}
+
+/*
+ * Flex grow
+**/
+@mixin tw-flex-grow($selector, $value, $hover: false, $focus: false, $screens: false) {
+  @include tw-mixins('flex-#{$selector}', flex, $value, $hover, $focus, $screens);
+}
+
+/*
+ * Order
+**/
+@mixin tw-order($selector, $value, $hover: false, $focus: false, $screens: false) {
+  @include tw-mixins('order-#{$selector}', order, $value, $hover, $focus, $screens);
+}

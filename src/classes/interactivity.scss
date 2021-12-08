@@ -1,0 +1,38 @@
+/*
+ * Cursor
+**/
+@include tw-corsor(auto, auto);
+@include tw-corsor(default, default);
+@include tw-corsor(pointer, pointer);
+@include tw-corsor(text, text);
+@include tw-corsor(move, move);
+@include tw-corsor(not-allowed, not-allowed);
+
+/*
+* Outline
+**/
+@include tw-outline(none, transparent, $hover: true, $focus: true);
+@include tw-outline(white, #ffffff, $hover: true, $focus: true);
+@include tw-outline(black, #000000, $hover: true, $focus: true);
+
+/*
+* Pointer events
+**/
+@include tw-pointer-events(none, none);
+@include tw-pointer-events(auto, auto);
+
+/*
+* Resize
+**/
+@include tw-resize(resize-none, none);
+@include tw-resize(resize-y, vertical);
+@include tw-resize(resize-x, horizontal);
+@include tw-resize(resize, both);
+
+/*
+* User select
+**/
+@include tw-user-select(none, none);
+@include tw-user-select(text, text);
+@include tw-user-select(all, all);
+@include tw-user-select(auto, auto);

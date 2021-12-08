@@ -1,0 +1,51 @@
+/*
+ * Transition duration
+**/
+@include tw-transition-duration(75, 75ms);
+@include tw-transition-duration(100, 100ms);
+@include tw-transition-duration(150, 150ms);
+@include tw-transition-duration(200, 200ms);
+@include tw-transition-duration(300, 300ms);
+@include tw-transition-duration(500, 500ms);
+@include tw-transition-duration(700, 700ms);
+@include tw-transition-duration(1000, 1000ms);
+
+/*
+ * Transition timing function
+**/
+@include tw-transition-timing-function(ease-linear, linear);
+@include tw-transition-timing-function(ease-in, cubic-bezier(0.4, 0, 1, 1));
+@include tw-transition-timing-function(ease-out, cubic-bezier(0, 0, 0.2, 1));
+@include tw-transition-timing-function(ease-in-out, cubic-bezier(0.4, 0, 0.2, 1));
+
+/*
+ * Transition delay
+**/
+@include tw-transition-delay(75, 75ms);
+@include tw-transition-delay(100, 100ms);
+@include tw-transition-delay(150, 150ms);
+@include tw-transition-delay(200, 200ms);
+@include tw-transition-delay(300, 300ms);
+@include tw-transition-delay(500, 500ms);
+@include tw-transition-delay(700, 700ms);
+@include tw-transition-delay(1000, 1000ms);
+
+/*
+ * Transitions
+**/
+@include tw-transitions(none, none);
+@include tw-transitions(all, all);
+@include tw-transitions(normal, 'background-color, border-color, color, fill, stroke, opacity, box-shadow, transform');
+@include tw-transitions(colors, none);
+@include tw-transitions(opacity, opacity);
+@include tw-transitions(shadow, shadow);
+@include tw-transitions(transform, transform);
+
+/*
+ * Animation
+**/
+@include tw-animation(none, none);
+@include tw-animation(spin, 'spin 1s linear infinite');
+@include tw-animation(ping, 'ping 1s cubic-bezier(0, 0, 0.2, 1) infinite');
+@include tw-animation(pulse, 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite');
+@include tw-animation(none, 'bounce 1s infinite');

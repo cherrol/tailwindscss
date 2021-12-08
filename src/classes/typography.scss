@@ -1,0 +1,180 @@
+/*
+ * Font size
+**/
+$font-size-var-maps: (
+  normal: $font-size,
+  size-base: $font-size,
+  xs: $font-size-mini,
+  sm: $font-size-small,
+  lg: $font-size-larg,
+  xl: $font-size-larger,
+  h1: $h1,
+  h2: $h2,
+  h3: $h3,
+  h4: $h4,
+  h5: $h5,
+  h6: $h6,
+);
+// with variables
+@each $name, $value in $font-size-var-maps {
+  @include tw-font-size($name, $value);
+}
+// with pixel
+@for $value from 12 to 32 {
+  @include tw-font-size($value, (($value * 1px / $font-size) * 1rem));
+}
+@each $screenName, $screenValue in $screens {
+  @media (min-width: $screenValue) {
+    // with variables
+    @each $name, $value in $font-size-var-maps {
+      @include tw-font-size($name, $value, $screens: $screenName);
+    }
+    // with pixel
+    @for $value from 12 to 32 {
+      @include tw-font-size($value, (($value * 1px / $font-size) * 1rem), $screens: $screenName);
+    }
+  }
+}
+
+/*
+ * Font style
+**/
+@include tw-font-style(italic, italic);
+@include tw-font-style(not-italic, normal);
+
+/*
+ * Font weight
+**/
+@include tw-font-weight(thin, 100);
+@include tw-font-weight(extralight, 200);
+@include tw-font-weight(light, 300);
+@include tw-font-weight(normal, 400);
+@include tw-font-weight(medium, 500);
+@include tw-font-weight(semibold, 600);
+@include tw-font-weight(bold, 700);
+@include tw-font-weight(extrabold, 800);
+@include tw-font-weight(black, 900);
+
+/*
+ * Letter sapcing
+**/
+.-tracking-999 {
+  letter-spacing: -999px;
+}
+@include tw-letter-spacing(least, -999px);
+@include tw-letter-spacing(tighter, -0.05em);
+@include tw-letter-spacing(tight, -0.025em);
+@include tw-letter-spacing(normal, normal);
+@include tw-letter-spacing(wide, 0.025em);
+@include tw-letter-spacing(wider, 0.05em);
+@include tw-letter-spacing(widest, 0.1em);
+
+/*
+ * Line height
+**/
+// with keyword
+@include tw-line-height(none, 1);
+@include tw-line-height(tight, 1.25);
+@include tw-line-height(snug, 1.375);
+@include tw-line-height(normal, 1.5);
+@include tw-line-height(relaxed, 1.625);
+@include tw-line-height(loose, 2);
+// with pixel
+@for $value from 12 to 32 {
+  @include tw-line-height($value, (($value * 1px / $font-size) * 1rem));
+}
+
+/*
+ * List style type
+**/
+@include tw-list-style-type(none, none);
+@include tw-list-style-type(disc, disc);
+@include tw-list-style-type(decimal, decimal);
+@include tw-list-style-type(circle, circle);
+@include tw-list-style-type(square, square);
+
+/*
+ * List style type
+**/
+@include tw-list-style-type(inside, inside);
+@include tw-list-style-type(outside, outside);
+
+/*
+ * Text align
+**/
+@include tw-text-align(left, left);
+@include tw-text-align(right, right);
+@include tw-text-align(center, center);
+@include tw-text-align(justify, justify);
+
+/*
+ * Text color
+**/
+@include tw-text-color(color-base, $text-color, $hover: true);
+@include tw-text-color(primary, $site-base, $hover: true);
+@include tw-text-color(white, #fff, $hover: true);
+@include tw-text-color(darker, $text-color-darker, $hover: true);
+@include tw-text-color(dark, $text-color-dark, $hover: true);
+@include tw-text-color(lighter, $text-color-lighter, $hover: true);
+@include tw-text-color(light, $text-color-light, $hover: true);
+@include tw-text-color(success, $color-success, $hover: true);
+@include tw-text-color(info, $color-info, $hover: true);
+@include tw-text-color(warning, $color-warning, $hover: true);
+@include tw-text-color(error, $color-error, $hover: true);
+
+/*
+ * Text decoration
+**/
+@include tw-text-decoration(underline, underline, $hover: true);
+@include tw-text-decoration(line-through, line-through);
+@include tw-text-decoration(no-underline, none);
+
+/*
+ * Text transform
+**/
+@include tw-text-transform(uppercase, uppercase);
+@include tw-text-transform(lowercase, lowercase);
+@include tw-text-transform(capitalize, capitalize);
+@include tw-text-transform(normal-case, none);
+@include tw-text-transform(overflow-ellipsis, ellipsis);
+@include tw-text-transform(overflow-clip, clip);
+
+/*
+ * Text overflow
+**/
+@for $value from 1 to 10 {
+  @include tw-text-overflow($value, $value, $hover: true);
+}
+@each $screenName, $screenValue in $screens {
+  @media (min-width: $screenValue) {
+    @for $value from 1 to 10 {
+      @include tw-text-overflow($value, $value, $hover: true, $screens: $screenName);
+    }
+  }
+}
+
+/*
+ * Vertical align
+**/
+@include tw-vertical-align(top, top);
+@include tw-vertical-align(middle, middle);
+@include tw-vertical-align(bottom, bottom);
+@include tw-vertical-align(baseline, baseline);
+@include tw-vertical-align(text-top, text-top);
+@include tw-vertical-align(text-bottom, text-bottom);
+
+/*
+ * White space
+**/
+@include tw-white-space(normal, normal);
+@include tw-white-space(nowrap, nowrap);
+@include tw-white-space(pre, pre);
+@include tw-white-space(pre-line, pre-line);
+@include tw-white-space(pre-wrap, pre-wrap);
+
+/*
+ * White space
+**/
+@include tw-word-break(normal, normal);
+@include tw-word-break(words, break-word);
+@include tw-word-break(all, all);
