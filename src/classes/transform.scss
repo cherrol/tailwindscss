@@ -1,38 +1,89 @@
 /*
- * Border collapse
+ * Transform origin
 **/
-@include tw-transform-origin(center, center);
-@include tw-transform-origin(left, left);
-@include tw-transform-origin(right, right);
-@include tw-transform-origin(top, top);
-@include tw-transform-origin(bottom, bottom);
-@include tw-transform-origin(top-left, 'top left');
-@include tw-transform-origin(top-right, 'top right');
-@include tw-transform-origin(bottom-left, 'bottom left');
-@include tw-transform-origin(bottom-right, 'bottom right');
+@each $name, $value in map.get($transform, "origin") {
+  @include tw-mixins($selector: origin-#{$name}) {
+    transform-origin: $value;
+  }
+}
 
 /*
  * Transform scale
 **/
-@include tw-transform-scale(105, 1.05, $hover: true);
+@each $name, $value in map.get($transform, "scale") {
+  @include tw-mixins($selector: scale-#{$name}, $hover: true) {
+    transform: scale($value);
+  }
+  @include tw-mixins($selector: scale-x-#{$name}, $hover: true) {
+    transform: scaleX($value);
+  }
+  @include tw-mixins($selector: scale-y-#{$name}, $hover: true) {
+    transform: scaleY($value);
+  }
+}
 
 /*
  * Transform rotate
 **/
-@include tw-transform-rotate(90, 90deg, $hover: true, $minus: true);
-@include tw-transform-rotate(180, 180deg, $hover: true, $minus: true);
-@include tw-transform-rotate(360, 360deg, $hover: true, $minus: true);
+@each $name, $value in map.get($transform, "rotate") {
+  @include tw-mixins($selector: rotate-#{$name}) {
+    transform: rotate($value);
+  }
+  @include tw-mixins($selector: -rotate-#{$name}) {
+    transform: rotate(-$value);
+  }
+}
 
 /*
  * Transform translate
 **/
-@include tw-transform-translate(0, 0);
-@include tw-transform-translate(('1\\/2'), 50%, $minus: true);
-@include tw-transform-translate(full, 100%, $minus: true);
-@each $screenName, $screenValue in $screens {
-  @media (min-width: $screenValue) {
-    @include tw-transform-translate(0, 0, $screens: $screenName);
-    @include tw-transform-translate('1\\/2', 50%, $minus: true, $screens: $screenName);
-    @include tw-transform-translate(full, 100%, $minus: true, $screens: $screenName);
+@each $name, $value in map.get($transform, "translate") {
+  @include tw-mixins($selector: translate-#{$name}) {
+    transform: translate($value, $value);
+  }
+  @include tw-mixins($selector: translate-x-#{$name}) {
+    transform: translateX($value);
+  }
+  @include tw-mixins($selector: translate-y-#{$name}) {
+    transform: translateY($value);
+  }
+
+  @if $name != "0" {
+    @include tw-mixins($selector: -translate-#{$name}) {
+      transform: translate(-$value, -$value);
+    }
+    @include tw-mixins($selector: -translate-x-#{$name}) {
+      transform: translateX(-$value);
+    }
+    @include tw-mixins($selector: -translate-y-#{$name}) {
+      transform: translateY(-$value);
+    }
+  }
+}
+@each $screen-name, $screen-value in $screens {
+  @media (min-width: $screen-value) {
+    @each $name, $value in map.get($transform, "translate") {
+      @include tw-mixins($selector: translate-#{$name}, $screen: $screen-name) {
+        transform: translate($value, $value);
+      }
+      @include tw-mixins($selector: translate-x-#{$name}, $screen: $screen-name) {
+        transform: translateX($value);
+      }
+      @include tw-mixins($selector: translate-y-#{$name}, $screen: $screen-name) {
+        transform: translateY($value);
+      }
+    
+      @if $name != "0" {
+        @include tw-mixins($selector: -translate-#{$name}, $screen: $screen-name) {
+          transform: translate(-$value, -$value);
+        }
+        @include tw-mixins($selector: -translate-x-#{$name}, $screen: $screen-name) {
+          transform: translateX(-$value);
+        }
+        @include tw-mixins($selector: -translate-y-#{$name}, $screen: $screen-name) {
+          transform: translateY(-$value);
+        }
+      }
+    }
   }
 }

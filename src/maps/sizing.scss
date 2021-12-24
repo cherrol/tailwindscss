@@ -1,0 +1,84 @@
+$sizing: (
+  "width": (
+    "auto": auto,
+    "min": min-content,
+    "max": max-content,
+    "full": 100%,
+    "screen": 100vw,
+  ),
+  "height": (
+    "0": 0px,
+    "full": 100%,
+    "screen": 100vw,
+  ),
+);
+@for $var from 1 through 11 {
+  $sizing: (
+    "width": map.merge(
+      map.get($sizing, "width"),
+      (
+        "#{$var}\\/12": #{$var / 12 * 100%},
+      )
+    ),
+    "height": map.merge(
+      map.get($sizing, "height"),
+      ()
+    ),
+  );
+}
+@for $var from 1 through 4 {
+  $sizing: (
+    "width": map.merge(
+      map.get($sizing, "width"),
+      (
+        "#{$var}\\/5": #{$var / 5 * 100%},
+      )
+    ),
+    "height": map.merge(
+      map.get($sizing, "height"),
+      ()
+    ),
+  );
+}
+@for $var from 0 through 24 {
+  $sizing: (
+    "width": map.merge(
+      map.get($sizing, "width"),
+      (
+        "#{$var * 5}": #{$var * 5}px,
+      )
+    ),
+    "height": map.merge(
+      map.get($sizing, "height"),
+      (
+        "#{$var * 5}": #{$var * 5}px,
+      )
+    ),
+  );
+}
+
+$sizing: map.merge(
+  $sizing,
+  (
+    "min-width": (
+      "0": 0px,
+      "full": 100%,
+      "screen": 100vw,
+    ),
+    "min-height": (
+      "0": 0px,
+      "full": 100%,
+      "screen": 100vh,
+    ),
+    "max-width": (
+      "none": none,
+      "full": 100%,
+      "screen": 100vw,
+    ),
+    "max-height": (
+      "none": none,
+      "full": 100%,
+      "screen": 100vh,
+    ),
+  )
+)

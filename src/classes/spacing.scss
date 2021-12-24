@@ -1,240 +1,172 @@
 /*
- * Spacing
+ * Margin
 **/
-// Keyword
-@include tw-margin(auto, auto, $minus: false);
-@include tw-spacing(full, 100%);
-// Percent
-@include tw-spacing('1\/12', (1 / 12 * 100%));
-@include tw-spacing('2\/12', (2 / 12 * 100%));
-@include tw-spacing('3\/12', (3 / 12 * 100%));
-@include tw-spacing('4\/12', (4 / 12 * 100%));
-@include tw-spacing('5\/12', (5 / 12 * 100%));
-@include tw-spacing('6\/12', (6 / 12 * 100%));
-@include tw-spacing('7\/12', (7 / 12 * 100%));
-@include tw-spacing('8\/12', (8 / 12 * 100%));
-@include tw-spacing('9\/12', (9 / 12 * 100%));
-@include tw-spacing('10\/12', (10 / 12 * 100%));
-@include tw-spacing('11\/12', (11 / 12 * 100%));
-@include tw-spacing('1\/5', (1 / 5 * 100%));
-@include tw-spacing('2\/5', (2 / 5 * 100%));
-@include tw-spacing('3\/5', (3 / 5 * 100%));
-@include tw-spacing('4\/5', (4 / 5 * 100%));
-// Pixel
-@include tw-spacing(0, 0px);
-@include tw-spacing(5, 5px);
-@include tw-spacing(10, 10px);
-@include tw-spacing(15, 15px);
-@include tw-spacing(20, 20px);
-@include tw-spacing(25, 25px);
-@include tw-spacing(30, 30px);
-@include tw-spacing(35, 35px);
-@include tw-spacing(40, 40px);
-@include tw-spacing(45, 45px);
-@include tw-spacing(50, 50px);
-@include tw-spacing(55, 55px);
-@include tw-spacing(60, 60px);
-@include tw-spacing(65, 65px);
-@include tw-spacing(70, 70px);
-@include tw-spacing(75, 75px);
-@include tw-spacing(80, 80px);
-@include tw-spacing(85, 85px);
-@include tw-spacing(90, 90px);
-@include tw-spacing(95, 95px);
-@include tw-spacing(100, 100px);
-@include tw-spacing(105, 105px);
-@include tw-spacing(110, 110px);
-@include tw-spacing(115, 115px);
-@include tw-spacing(120, 120px);
-@media (min-width: $screen-sm) {
-  $screens: 'sm';
-  // Keyword
-  @include tw-margin(auto, auto, $screens: $screens, $minus: false);
-  @include tw-spacing(full, 100%, $screens: $screens);
-  // Percent
-  @include tw-spacing('1\/12', (1 / 12 * 100%), $screens: $screens);
-  @include tw-spacing('2\/12', (2 / 12 * 100%), $screens: $screens);
-  @include tw-spacing('3\/12', (3 / 12 * 100%), $screens: $screens);
-  @include tw-spacing('4\/12', (4 / 12 * 100%), $screens: $screens);
-  @include tw-spacing('5\/12', (5 / 12 * 100%), $screens: $screens);
-  @include tw-spacing('6\/12', (6 / 12 * 100%), $screens: $screens);
-  @include tw-spacing('7\/12', (7 / 12 * 100%), $screens: $screens);
-  @include tw-spacing('8\/12', (8 / 12 * 100%), $screens: $screens);
-  @include tw-spacing('9\/12', (9 / 12 * 100%), $screens: $screens);
-  @include tw-spacing('10\/12', (10 / 12 * 100%), $screens: $screens);
-  @include tw-spacing('11\/12', (11 / 12 * 100%), $screens: $screens);
-  @include tw-spacing('1\/5', (1 / 5 * 100%), $screens: $screens);
-  @include tw-spacing('2\/5', (2 / 5 * 100%), $screens: $screens);
-  @include tw-spacing('3\/5', (3 / 5 * 100%), $screens: $screens);
-  @include tw-spacing('4\/5', (4 / 5 * 100%), $screens: $screens);
-  // Pixel
-  @include tw-spacing(0, 0px, $screens: $screens);
-  @include tw-spacing(5, 5px, $screens: $screens);
-  @include tw-spacing(10, 10px, $screens: $screens);
-  @include tw-spacing(15, 15px, $screens: $screens);
-  @include tw-spacing(20, 20px, $screens: $screens);
-  @include tw-spacing(25, 25px, $screens: $screens);
-  @include tw-spacing(30, 30px, $screens: $screens);
-  @include tw-spacing(35, 35px, $screens: $screens);
-  @include tw-spacing(40, 40px, $screens: $screens);
-  @include tw-spacing(45, 45px, $screens: $screens);
-  @include tw-spacing(50, 50px, $screens: $screens);
-  @include tw-spacing(55, 55px, $screens: $screens);
-  @include tw-spacing(60, 60px, $screens: $screens);
-  @include tw-spacing(65, 65px, $screens: $screens);
-  @include tw-spacing(70, 70px, $screens: $screens);
-  @include tw-spacing(75, 75px, $screens: $screens);
-  @include tw-spacing(80, 80px, $screens: $screens);
-  @include tw-spacing(85, 85px, $screens: $screens);
-  @include tw-spacing(90, 90px, $screens: $screens);
-  @include tw-spacing(95, 95px, $screens: $screens);
-  @include tw-spacing(100, 100px, $screens: $screens);
-  @include tw-spacing(105, 105px, $screens: $screens);
-  @include tw-spacing(110, 110px, $screens: $screens);
-  @include tw-spacing(115, 115px, $screens: $screens);
-  @include tw-spacing(120, 120px, $screens: $screens);
+@each $name, $value in map.get($spacing, "margin") {
+  @include tw-mixins($selector: ml-#{$name}) {
+    margin-left: $value;
+  }
+  @include tw-mixins($selector: mr-#{$name}) {
+    margin-right: $value;
+  }
+  @include tw-mixins($selector: mt-#{$name}) {
+    margin-top: $value;
+  }
+  @include tw-mixins($selector: mb-#{$name}) {
+    margin-bottom: $value;
+  }
+  @include tw-mixins($selector: mx-#{$name}) {
+    margin-left: $value;
+    margin-right: $value;
+  }
+  @include tw-mixins($selector: my-#{$name}) {
+    margin-top: $value;
+    margin-bottom: $value;
+  }
+  @include tw-mixins($selector: m-#{$name}) {
+    margin: $value;
+  }
+
+  @if $name != "auto" {
+    @include tw-mixins($selector: -ml-#{$name}) {
+      margin-left: -$value;
+    }
+    @include tw-mixins($selector: -mr-#{$name}) {
+      margin-right: -$value;
+    }
+    @include tw-mixins($selector: -mt-#{$name}) {
+      margin-top: -$value;
+    }
+    @include tw-mixins($selector: -mb-#{$name}) {
+      margin-bottom: -$value;
+    }
+    @include tw-mixins($selector: -mx-#{$name}) {
+      margin-left: -$value;
+      margin-right: -$value;
+    }
+    @include tw-mixins($selector: -my-#{$name}) {
+      margin-top: -$value;
+      margin-bottom: -$value;
+    }
+    @include tw-mixins($selector: -m-#{$name}) {
+      margin: -$value;
+    }
+  }
 }
-@media (min-width: $screen-md) {
-  $screens: 'md';
-  // Keyword
-  @include tw-margin(auto, auto, $screens: $screens, $minus: false);
-  @include tw-spacing(full, 100%, $screens: $screens);
-  // Percent
-  @include tw-spacing('1\/12', (1 / 12 * 100%), $screens: $screens);
-  @include tw-spacing('2\/12', (2 / 12 * 100%), $screens: $screens);
-  @include tw-spacing('3\/12', (3 / 12 * 100%), $screens: $screens);
-  @include tw-spacing('4\/12', (4 / 12 * 100%), $screens: $screens);
-  @include tw-spacing('5\/12', (5 / 12 * 100%), $screens: $screens);
-  @include tw-spacing('6\/12', (6 / 12 * 100%), $screens: $screens);
-  @include tw-spacing('7\/12', (7 / 12 * 100%), $screens: $screens);
-  @include tw-spacing('8\/12', (8 / 12 * 100%), $screens: $screens);
-  @include tw-spacing('9\/12', (9 / 12 * 100%), $screens: $screens);
-  @include tw-spacing('10\/12', (10 / 12 * 100%), $screens: $screens);
-  @include tw-spacing('11\/12', (11 / 12 * 100%), $screens: $screens);
-  @include tw-spacing('1\/5', (1 / 5 * 100%), $screens: $screens);
-  @include tw-spacing('2\/5', (2 / 5 * 100%), $screens: $screens);
-  @include tw-spacing('3\/5', (3 / 5 * 100%), $screens: $screens);
-  @include tw-spacing('4\/5', (4 / 5 * 100%), $screens: $screens);
-  // Pixel
-  @include tw-spacing(0, 0px, $screens: $screens);
-  @include tw-spacing(5, 5px, $screens: $screens);
-  @include tw-spacing(10, 10px, $screens: $screens);
-  @include tw-spacing(15, 15px, $screens: $screens);
-  @include tw-spacing(20, 20px, $screens: $screens);
-  @include tw-spacing(25, 25px, $screens: $screens);
-  @include tw-spacing(30, 30px, $screens: $screens);
-  @include tw-spacing(35, 35px, $screens: $screens);
-  @include tw-spacing(40, 40px, $screens: $screens);
-  @include tw-spacing(45, 45px, $screens: $screens);
-  @include tw-spacing(50, 50px, $screens: $screens);
-  @include tw-spacing(55, 55px, $screens: $screens);
-  @include tw-spacing(60, 60px, $screens: $screens);
-  @include tw-spacing(65, 65px, $screens: $screens);
-  @include tw-spacing(70, 70px, $screens: $screens);
-  @include tw-spacing(75, 75px, $screens: $screens);
-  @include tw-spacing(80, 80px, $screens: $screens);
-  @include tw-spacing(85, 85px, $screens: $screens);
-  @include tw-spacing(90, 90px, $screens: $screens);
-  @include tw-spacing(95, 95px, $screens: $screens);
-  @include tw-spacing(100, 100px, $screens: $screens);
-  @include tw-spacing(105, 105px, $screens: $screens);
-  @include tw-spacing(110, 110px, $screens: $screens);
-  @include tw-spacing(115, 115px, $screens: $screens);
-  @include tw-spacing(120, 120px, $screens: $screens);
+@each $screen-name, $screen-value in $screens {
+  @media (min-width: $screen-value) {
+    @each $name, $value in map.get($spacing, "margin") {
+      @include tw-mixins($selector: ml-#{$name}, $screen: $screen-name) {
+        margin-left: $value;
+      }
+      @include tw-mixins($selector: mr-#{$name}, $screen: $screen-name) {
+        margin-right: $value;
+      }
+      @include tw-mixins($selector: mt-#{$name}, $screen: $screen-name) {
+        margin-top: $value;
+      }
+      @include tw-mixins($selector: mb-#{$name}, $screen: $screen-name) {
+        margin-bottom: $value;
+      }
+      @include tw-mixins($selector: mx-#{$name}, $screen: $screen-name) {
+        margin-left: $value;
+        margin-right: $value;
+      }
+      @include tw-mixins($selector: my-#{$name}, $screen: $screen-name) {
+        margin-top: $value;
+        margin-bottom: $value;
+      }
+      @include tw-mixins($selector: m-#{$name}, $screen: $screen-name) {
+        margin: $value;
+      }
+
+      @if $name != "auto" {
+        @include tw-mixins($selector: -ml-#{$name}, $screen: $screen-name) {
+          margin-left: -$value;
+        }
+        @include tw-mixins($selector: -mr-#{$name}, $screen: $screen-name) {
+          margin-right: -$value;
+        }
+        @include tw-mixins($selector: -mt-#{$name}, $screen: $screen-name) {
+          margin-top: -$value;
+        }
+        @include tw-mixins($selector: -mb-#{$name}, $screen: $screen-name) {
+          margin-bottom: -$value;
+        }
+        @include tw-mixins($selector: -mx-#{$name}, $screen: $screen-name) {
+          margin-left: -$value;
+          margin-right: -$value;
+        }
+        @include tw-mixins($selector: -my-#{$name}, $screen: $screen-name) {
+          margin-top: -$value;
+          margin-bottom: -$value;
+        }
+        @include tw-mixins($selector: -m-#{$name}, $screen: $screen-name) {
+          margin: -$value;
+        }
+      }
+    }
+  }
 }
-@media (min-width: $screen-lg) {
-  $screens: 'lg';
-  // Keyword
-  @include tw-margin(auto, auto, $screens: $screens, $minus: false);
-  @include tw-spacing(full, 100%, $screens: $screens);
-  // Percent
-  @include tw-spacing('1\/12', (1 / 12 * 100%), $screens: $screens);
-  @include tw-spacing('2\/12', (2 / 12 * 100%), $screens: $screens);
-  @include tw-spacing('3\/12', (3 / 12 * 100%), $screens: $screens);
-  @include tw-spacing('4\/12', (4 / 12 * 100%), $screens: $screens);
-  @include tw-spacing('5\/12', (5 / 12 * 100%), $screens: $screens);
-  @include tw-spacing('6\/12', (6 / 12 * 100%), $screens: $screens);
-  @include tw-spacing('7\/12', (7 / 12 * 100%), $screens: $screens);
-  @include tw-spacing('8\/12', (8 / 12 * 100%), $screens: $screens);
-  @include tw-spacing('9\/12', (9 / 12 * 100%), $screens: $screens);
-  @include tw-spacing('10\/12', (10 / 12 * 100%), $screens: $screens);
-  @include tw-spacing('11\/12', (11 / 12 * 100%), $screens: $screens);
-  @include tw-spacing('1\/5', (1 / 5 * 100%), $screens: $screens);
-  @include tw-spacing('2\/5', (2 / 5 * 100%), $screens: $screens);
-  @include tw-spacing('3\/5', (3 / 5 * 100%), $screens: $screens);
-  @include tw-spacing('4\/5', (4 / 5 * 100%), $screens: $screens);
-  // Pixel
-  @include tw-spacing(0, 0px, $screens: $screens);
-  @include tw-spacing(5, 5px, $screens: $screens);
-  @include tw-spacing(10, 10px, $screens: $screens);
-  @include tw-spacing(15, 15px, $screens: $screens);
-  @include tw-spacing(20, 20px, $screens: $screens);
-  @include tw-spacing(25, 25px, $screens: $screens);
-  @include tw-spacing(30, 30px, $screens: $screens);
-  @include tw-spacing(35, 35px, $screens: $screens);
-  @include tw-spacing(40, 40px, $screens: $screens);
-  @include tw-spacing(45, 45px, $screens: $screens);
-  @include tw-spacing(50, 50px, $screens: $screens);
-  @include tw-spacing(55, 55px, $screens: $screens);
-  @include tw-spacing(60, 60px, $screens: $screens);
-  @include tw-spacing(65, 65px, $screens: $screens);
-  @include tw-spacing(70, 70px, $screens: $screens);
-  @include tw-spacing(75, 75px, $screens: $screens);
-  @include tw-spacing(80, 80px, $screens: $screens);
-  @include tw-spacing(85, 85px, $screens: $screens);
-  @include tw-spacing(90, 90px, $screens: $screens);
-  @include tw-spacing(95, 95px, $screens: $screens);
-  @include tw-spacing(100, 100px, $screens: $screens);
-  @include tw-spacing(105, 105px, $screens: $screens);
-  @include tw-spacing(110, 110px, $screens: $screens);
-  @include tw-spacing(115, 115px, $screens: $screens);
-  @include tw-spacing(120, 120px, $screens: $screens);
+
+/*
+ * Padding
+**/
+@each $name, $value in map.get($spacing, "ratio") {
+  @include tw-mixins($selector: ratio-#{$name}) {
+    padding-top: $value;
+  }
 }
-@media (min-width: $screen-xl) {
-  $screens: 'xl';
-  // Keyword
-  @include tw-margin(auto, auto, $screens: $screens, $minus: false);
-  @include tw-spacing(full, 100%, $screens: $screens);
-  // Percent
-  @include tw-spacing('1\/12', (1 / 12 * 100%), $screens: $screens);
-  @include tw-spacing('2\/12', (2 / 12 * 100%), $screens: $screens);
-  @include tw-spacing('3\/12', (3 / 12 * 100%), $screens: $screens);
-  @include tw-spacing('4\/12', (4 / 12 * 100%), $screens: $screens);
-  @include tw-spacing('5\/12', (5 / 12 * 100%), $screens: $screens);
-  @include tw-spacing('6\/12', (6 / 12 * 100%), $screens: $screens);
-  @include tw-spacing('7\/12', (7 / 12 * 100%), $screens: $screens);
-  @include tw-spacing('8\/12', (8 / 12 * 100%), $screens: $screens);
-  @include tw-spacing('9\/12', (9 / 12 * 100%), $screens: $screens);
-  @include tw-spacing('10\/12', (10 / 12 * 100%), $screens: $screens);
-  @include tw-spacing('11\/12', (11 / 12 * 100%), $screens: $screens);
-  @include tw-spacing('1\/5', (1 / 5 * 100%), $screens: $screens);
-  @include tw-spacing('2\/5', (2 / 5 * 100%), $screens: $screens);
-  @include tw-spacing('3\/5', (3 / 5 * 100%), $screens: $screens);
-  @include tw-spacing('4\/5', (4 / 5 * 100%), $screens: $screens);
-  // Pixel
-  @include tw-spacing(0, 0px, $screens: $screens);
-  @include tw-spacing(5, 5px, $screens: $screens);
-  @include tw-spacing(10, 10px, $screens: $screens);
-  @include tw-spacing(15, 15px, $screens: $screens);
-  @include tw-spacing(20, 20px, $screens: $screens);
-  @include tw-spacing(25, 25px, $screens: $screens);
-  @include tw-spacing(30, 30px, $screens: $screens);
-  @include tw-spacing(35, 35px, $screens: $screens);
-  @include tw-spacing(40, 40px, $screens: $screens);
-  @include tw-spacing(45, 45px, $screens: $screens);
-  @include tw-spacing(50, 50px, $screens: $screens);
-  @include tw-spacing(55, 55px, $screens: $screens);
-  @include tw-spacing(60, 60px, $screens: $screens);
-  @include tw-spacing(65, 65px, $screens: $screens);
-  @include tw-spacing(70, 70px, $screens: $screens);
-  @include tw-spacing(75, 75px, $screens: $screens);
-  @include tw-spacing(80, 80px, $screens: $screens);
-  @include tw-spacing(85, 85px, $screens: $screens);
-  @include tw-spacing(90, 90px, $screens: $screens);
-  @include tw-spacing(95, 95px, $screens: $screens);
-  @include tw-spacing(100, 100px, $screens: $screens);
-  @include tw-spacing(105, 105px, $screens: $screens);
-  @include tw-spacing(110, 110px, $screens: $screens);
-  @include tw-spacing(115, 115px, $screens: $screens);
-  @include tw-spacing(120, 120px, $screens: $screens);
+@each $name, $value in map.get($spacing, "padding") {
+  @include tw-mixins($selector: pl-#{$name}) {
+    padding-left: $value;
+  }
+  @include tw-mixins($selector: pr-#{$name}) {
+    padding-right: $value;
+  }
+  @include tw-mixins($selector: pt-#{$name}) {
+    padding-top: $value;
+  }
+  @include tw-mixins($selector: pb-#{$name}) {
+    padding-bottom: $value;
+  }
+  @include tw-mixins($selector: px-#{$name}) {
+    padding-left: $value;
+    padding-right: $value;
+  }
+  @include tw-mixins($selector: py-#{$name}) {
+    padding-top: $value;
+    padding-bottom: $value;
+  }
+  @include tw-mixins($selector: p-#{$name}) {
+    padding: $value;
+  }
+}
+@each $screen-name, $screen-value in $screens {
+  @media (min-width: $screen-value) {
+    @each $name, $value in map.get($spacing, "padding") {
+      @include tw-mixins($selector: pl-#{$name}, $screen: $screen-name) {
+        padding-left: $value;
+      }
+      @include tw-mixins($selector: pr-#{$name}, $screen: $screen-name) {
+        padding-right: $value;
+      }
+      @include tw-mixins($selector: pt-#{$name}, $screen: $screen-name) {
+        padding-top: $value;
+      }
+      @include tw-mixins($selector: pb-#{$name}, $screen: $screen-name) {
+        padding-bottom: $value;
+      }
+      @include tw-mixins($selector: px-#{$name}, $screen: $screen-name) {
+        padding-left: $value;
+        padding-right: $value;
+      }
+      @include tw-mixins($selector: py-#{$name}, $screen: $screen-name) {
+        padding-top: $value;
+        padding-bottom: $value;
+      }
+      @include tw-mixins($selector: p-#{$name}, $screen: $screen-name) {
+        padding: $value;
+      }
+    }
+  }
 }

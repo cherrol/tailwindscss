@@ -1,203 +1,253 @@
 /*
  * Box sizing
 **/
-@include tw-box-sizing(border, border-box);
-@include tw-box-sizing(content, content-box);
+@each $name, $value in map.get($layout, "box-sizing") {
+  @include tw-mixins($selector: box-#{$name}) {
+    box-sizing: $value;
+  }
+}
 
 /*
  * Display
 **/
-@include tw-display(hidden, none);
-@include tw-display(display-block, block);
-@include tw-display(inline, inline);
-@include tw-display(inline-block, inline-block);
-@include tw-display(flex, flex);
-@include tw-display(inline-flex, inline-flex);
-@include tw-display(table, table);
-@include tw-display(inline-table, inline-table);
-@media (min-width: $screen-sm) {
-  $screens: 'sm';
-  @include tw-display(hidden, none, $screens: $screens);
-  @include tw-display(display-block, block, $screens: $screens);
-  @include tw-display(inline, inline, $screens: $screens);
-  @include tw-display(inline-block, inline-block, $screens: $screens);
-  @include tw-display(flex, flex, $screens: $screens);
-  @include tw-display(inline-flex, inline-flex, $screens: $screens);
-  @include tw-display(table, table, $screens: $screens);
-  @include tw-display(inline-table, inline-table, $screens: $screens);
+@each $name, $value in map.get($layout, "display") {
+  @include tw-mixins($selector: #{$name}) {
+    display: $value;
+  }
 }
-@media (min-width: $screen-md) {
-  $screens: 'md';
-  @include tw-display(hidden, none, $screens: $screens);
-  @include tw-display(display-block, block, $screens: $screens);
-  @include tw-display(inline, inline, $screens: $screens);
-  @include tw-display(inline-block, inline-block, $screens: $screens);
-  @include tw-display(flex, flex, $screens: $screens);
-  @include tw-display(inline-flex, inline-flex, $screens: $screens);
-  @include tw-display(table, table, $screens: $screens);
-  @include tw-display(inline-table, inline-table, $screens: $screens);
-}
-@media (min-width: $screen-lg) {
-  $screens: 'lg';
-  @include tw-display(hidden, none, $screens: $screens);
-  @include tw-display(display-block, block, $screens: $screens);
-  @include tw-display(inline, inline, $screens: $screens);
-  @include tw-display(inline-block, inline-block, $screens: $screens);
-  @include tw-display(flex, flex, $screens: $screens);
-  @include tw-display(inline-flex, inline-flex, $screens: $screens);
-  @include tw-display(table, table, $screens: $screens);
-  @include tw-display(inline-table, inline-table, $screens: $screens);
-}
-@media (min-width: $screen-xl) {
-  $screens: 'xl';
-  @include tw-display(hidden, none, $screens: $screens);
-  @include tw-display(display-block, block, $screens: $screens);
-  @include tw-display(inline, inline, $screens: $screens);
-  @include tw-display(inline-block, inline-block, $screens: $screens);
-  @include tw-display(flex, flex, $screens: $screens);
-  @include tw-display(inline-flex, inline-flex, $screens: $screens);
-  @include tw-display(table, table, $screens: $screens);
-  @include tw-display(inline-table, inline-table, $screens: $screens);
+@each $screen-name, $screen-value in $screens {
+  @media (min-width: $screen-value) {
+    @each $name, $value in map.get($layout, "display") {
+      @include tw-mixins($selector: #{$name}, $screen: $screen-name) {
+        display: $value;
+      }
+    }
+  }
 }
 
 /*
  * Float
 **/
-@include tw-float(left, left);
-@include tw-float(right, right);
-@include tw-float(none, none);
+@each $name, $value in map.get($layout, "float") {
+  @include tw-mixins($selector: float-#{$name}) {
+    float: $value;
+  }
+}
 
 /*
  * Clear
 **/
-@include tw-clear(left, left);
-@include tw-clear(right, right);
-@include tw-clear(both, both);
-@include tw-clear(none, none);
+@each $name, $value in map.get($layout, "clear") {
+  @include tw-mixins($selector: clear-#{$name}) {
+    clear: $value;
+  }
+}
 
 /*
  * Object fit
 **/
-@include tw-object-fit(contain, contain);
-@include tw-object-fit(cover, cover);
-@include tw-object-fit(fill, fill);
-@include tw-object-fit(none, none);
-@include tw-object-fit(scale-down, scale-down);
+@each $name, $value in map.get($layout, "object-fit") {
+  @include tw-mixins($selector: object-#{$name}) {
+    object-fit: $value;
+  }
+}
 
 /*
  * Object position
 **/
-@include tw-object-position(bottom, bottom);
-@include tw-object-position(center, center);
-@include tw-object-position(left, left);
-@include tw-object-position(right, right);
-@include tw-object-position(top, top);
-@include tw-object-position(left-bottom, 'left bottom');
-@include tw-object-position(left-top, 'left top');
-@include tw-object-position(right-bottom, 'right bottom');
-@include tw-object-position(right-top, 'right top');
+@each $name, $value in map.get($layout, "object-position") {
+  @include tw-mixins($selector: object-#{$name}) {
+    object-position: $value;
+  }
+}
 
 /*
- * overflow
+ * Overflow
 **/
-@include tw-overflow(auto, auto);
-@include tw-overflow(hidden, hidden, $important: true);
-@include tw-overflow(scroll, scroll);
-@include tw-overflow(visible, visible);
+@each $name, $value in map.get($layout, "overflow") {
+  @include tw-mixins($selector: overflow-#{$name}) {
+    overflow: $value;
+  }
+  @include tw-mixins($selector: overflow-x-#{$name}) {
+    overflow-x: $value;
+  }
+  @include tw-mixins($selector: overflow-y-#{$name}) {
+    overflow-y: $value;
+  }
+
+  @if $value == "hidden" {
+    @include tw-mixins($selector: overflow-#{$name}\!) {
+      overflow: $value !important;
+    }
+    @include tw-mixins($selector: overflow-x-#{$name}\!) {
+      overflow-x: $value !important;
+    }
+    @include tw-mixins($selector: overflow-y-#{$name}\!) {
+      overflow-y: $value !important;
+    }
+  }
+}
 
 /*
  * Position
 **/
-@include tw-position(static, static);
-@include tw-position(fixed, fixed);
-@include tw-position(absolute, absolute);
-@include tw-position(relative, relative);
-@include tw-position(sticky, sticky);
-@media (min-width: $screen-sm) {
-  $screens: 'sm';
-  @include tw-position(static, static, $screens: $screens);
-  @include tw-position(fixed, fixed, $screens: $screens);
-  @include tw-position(absolute, absolute, $screens: $screens);
-  @include tw-position(relative, relative, $screens: $screens);
-  @include tw-position(sticky, sticky, $screens: $screens);
+@each $name, $value in map.get($layout, "position") {
+  @include tw-mixins($selector: #{$name}) {
+    position: $value;
+  }
 }
-@media (min-width: $screen-md) {
-  $screens: 'md';
-  @include tw-position(static, static, $screens: $screens);
-  @include tw-position(fixed, fixed, $screens: $screens);
-  @include tw-position(absolute, absolute, $screens: $screens);
-  @include tw-position(relative, relative, $screens: $screens);
-  @include tw-position(sticky, sticky, $screens: $screens);
-}
-@media (min-width: $screen-lg) {
-  $screens: 'lg';
-  @include tw-position(static, static, $screens: $screens);
-  @include tw-position(fixed, fixed, $screens: $screens);
-  @include tw-position(absolute, absolute, $screens: $screens);
-  @include tw-position(relative, relative, $screens: $screens);
-  @include tw-position(sticky, sticky, $screens: $screens);
-}
-@media (min-width: $screen-xl) {
-  $screens: 'xl';
-  @include tw-position(static, static, $screens: $screens);
-  @include tw-position(fixed, fixed, $screens: $screens);
-  @include tw-position(absolute, absolute, $screens: $screens);
-  @include tw-position(relative, relative, $screens: $screens);
-  @include tw-position(sticky, sticky, $screens: $screens);
+@each $screen-name, $screen-value in $screens {
+  @media (min-width: $screen-value) {
+    @each $name, $value in map.get($layout, "position") {
+      @include tw-mixins($selector: #{$name}, $screen: $screen-name) {
+        position: $value;
+      }
+    }
+  }
 }
 
 /*
  * Position inset
 **/
-@include tw-position-inset(0, 0px);
-@include tw-position-inset(auto, auto);
-@include tw-position-inset('1\/2', 50%, $minus: true);
-@include tw-position-inset(full, 100%, $minus: true);
-@media (min-width: $screen-sm) {
-  $screens: 'sm';
-  @include tw-position-inset(0, 0px, $screens: $screens);
-  @include tw-position-inset(auto, auto, $screens: $screens);
-  @include tw-position-inset('1\/2', 50%, $minus: true, $screens: $screens);
-  @include tw-position-inset(full, 100%, $minus: true, $screens: $screens);
+@each $name, $value in map.get($layout, "inset") {
+  @include tw-mixins($selector: left-#{$name}) {
+    left: $value;
+  }
+  @include tw-mixins($selector: right-#{$name}) {
+    right: $value;
+  }
+  @include tw-mixins($selector: top-#{$name}) {
+    top: $value;
+  }
+  @include tw-mixins($selector: bottom-#{$name}) {
+    bottom: $value;
+  }
+  @include tw-mixins($selector: inset-x-#{$name}) {
+    left: $value;
+    right: $value;
+  }
+  @include tw-mixins($selector: inset-y-#{$name}) {
+    bottom: $value;
+    top: $value;
+  }
+  @include tw-mixins($selector: inset-#{$name}) {
+    left: $value;
+    right: $value;
+    bottom: $value;
+    top: $value;
+  }
+
+  @if meta.type-of($value) == number and $value > 0 {
+    @include tw-mixins($selector: -left-#{$name}) {
+      left: -$value;
+    }
+    @include tw-mixins($selector: -right-#{$name}) {
+      right: -$value;
+    }
+    @include tw-mixins($selector: -top-#{$name}) {
+      top: -$value;
+    }
+    @include tw-mixins($selector: -bottom-#{$name}) {
+      bottom: -$value;
+    }
+    @include tw-mixins($selector: -inset-x-#{$name}) {
+      left: -$value;
+      right: -$value;
+    }
+    @include tw-mixins($selector: -inset-y-#{$name}) {
+      bottom: -$value;
+      top: -$value;
+    }
+    @include tw-mixins($selector: -inset-#{$name}) {
+      left: -$value;
+      right: -$value;
+      bottom: -$value;
+      top: -$value;
+    }
+  }
 }
-@media (min-width: $screen-md) {
-  $screens: 'md';
-  @include tw-position-inset(0, 0px, $screens: $screens);
-  @include tw-position-inset(auto, auto, $screens: $screens);
-  @include tw-position-inset('1\/2', 50%, $minus: true, $screens: $screens);
-  @include tw-position-inset(full, 100%, $minus: true, $screens: $screens);
-}
-@media (min-width: $screen-lg) {
-  $screens: 'lg';
-  @include tw-position-inset(0, 0px, $screens: $screens);
-  @include tw-position-inset(auto, auto, $screens: $screens);
-  @include tw-position-inset('1\/2', 50%, $minus: true, $screens: $screens);
-  @include tw-position-inset(full, 100%, $minus: true, $screens: $screens);
-}
-@media (min-width: $screen-xl) {
-  $screens: 'xl';
-  @include tw-position-inset(0, 0px, $screens: $screens);
-  @include tw-position-inset(auto, auto, $screens: $screens);
-  @include tw-position-inset('1\/2', 50%, $minus: true, $screens: $screens);
-  @include tw-position-inset(full, 100%, $minus: true, $screens: $screens);
+@each $screen-name, $screen-value in $screens {
+  @media (min-width: $screen-value) {
+    @each $name, $value in map.get($layout, "inset") {
+      @include tw-mixins($selector: left-#{$name}, $screen: $screen-name) {
+        left: $value;
+      }
+      @include tw-mixins($selector: right-#{$name}, $screen: $screen-name) {
+        right: $value;
+      }
+      @include tw-mixins($selector: top-#{$name}, $screen: $screen-name) {
+        top: $value;
+      }
+      @include tw-mixins($selector: bottom-#{$name}, $screen: $screen-name) {
+        bottom: $value;
+      }
+      @include tw-mixins($selector: inset-x-#{$name}, $screen: $screen-name) {
+        left: $value;
+        right: $value;
+      }
+      @include tw-mixins($selector: inset-y-#{$name}, $screen: $screen-name) {
+        bottom: $value;
+        top: $value;
+      }
+      @include tw-mixins($selector: inset-#{$name}, $screen: $screen-name) {
+        left: $value;
+        right: $value;
+        bottom: $value;
+        top: $value;
+      }
+
+      @if meta.type-of($value) == number and $value > 0 {
+        @include tw-mixins($selector: -left-#{$name}, $screen: $screen-name) {
+          left: -$value;
+        }
+        @include tw-mixins($selector: -right-#{$name}, $screen: $screen-name) {
+          right: -$value;
+        }
+        @include tw-mixins($selector: -top-#{$name}, $screen: $screen-name) {
+          top: -$value;
+        }
+        @include tw-mixins($selector: -bottom-#{$name}, $screen: $screen-name) {
+          bottom: -$value;
+        }
+        @include tw-mixins($selector: -inset-x-#{$name}, $screen: $screen-name) {
+          left: -$value;
+          right: -$value;
+        }
+        @include tw-mixins($selector: -inset-y-#{$name}, $screen: $screen-name) {
+          bottom: -$value;
+          top: -$value;
+        }
+        @include tw-mixins($selector: -inset-#{$name}, $screen: $screen-name) {
+          left: -$value;
+          right: -$value;
+          bottom: -$value;
+          top: -$value;
+        }
+      }
+    }
+  }
 }
 
 /*
  * Visibility
 **/
-@include tw-visibility(visible, visible);
-@include tw-visibility(invisible, hidden);
+@each $name, $value in map.get($layout, "visibility") {
+  @include tw-mixins($selector: #{$name}) {
+    visibility: $value;
+  }
+}
 
-@include tw-z-index(0, 0, $hover: true);
-@include tw-z-index(1, 1, $hover: true, $minus: true);
-@include tw-z-index(2, 2, $hover: true);
-@include tw-z-index(3, 3, $hover: true);
-@include tw-z-index(4, 4, $hover: true);
-@include tw-z-index(5, 5, $hover: true);
-@include tw-z-index(6, 6, $hover: true);
-@include tw-z-index(7, 7, $hover: true);
-@include tw-z-index(8, 8, $hover: true);
-@include tw-z-index(9, 9, $hover: true);
-@include tw-z-index(10, 10, $hover: true);
-@include tw-z-index(100, 100, $hover: true);
-@include tw-z-index(auto, auto, $hover: true);
+/*
+ * Z-index
+**/
+@each $name, $value in map.get($layout, "zindex") {
+  @include tw-mixins($selector: z-#{$name}) {
+    z-index: $value;
+  }
+
+  @if $name == '1' {
+    @include tw-mixins($selector: -z-#{$name}) {
+      z-index: -$value;
+    }
+  }
+}

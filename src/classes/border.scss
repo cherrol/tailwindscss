@@ -1,41 +1,123 @@
 /*
- * Border radius
-**/
-@include tw-border-radius(1, 1px);
-@include tw-border-radius(2, 2px);
-@include tw-border-radius(3, 3px);
-@include tw-border-radius(4, 4px);
-@include tw-border-radius(5, 5px);
-@include tw-border-radius(full, 9999px);
-
-/*
- * Border width
-**/
-@include tw-border-width(0, 0px);
-@include tw-border-width(1, 1px);
-@include tw-border-width(2, 2px);
-@include tw-border-width(3, 3px);
-@include tw-border-width(4, 4px);
-@include tw-border-width(5, 5px);
-@include tw-border-width(6, 6px);
-
-/*
  * Border color
 **/
-@include tw-border-color(base, $border-color);
-@include tw-border-color(dark, $border-color-dark);
-@include tw-border-color(darker, $border-color-darker);
-@include tw-border-color(white, #fff);
-@include tw-border-color(black, #000);
-@include tw-border-color(primary, $site-base);
-@include tw-border-color(second, $site-second);
-@include tw-border-color(third, $site-third);
+@each $name, $value in map.get($border, "color") {
+  @include tw-mixins($selector: border-l-#{$name}) {
+    border-left-color: $value;
+  }
+  @include tw-mixins($selector: border-r-#{$name}) {
+    border-right-color: $value;
+  }
+  @include tw-mixins($selector: border-t-#{$name}) {
+    border-top-color: $value;
+  }
+  @include tw-mixins($selector: border-b-#{$name}) {
+    border-bottom-color: $value;
+  }
+  @include tw-mixins($selector: border-x-#{$name}) {
+    border-left-color: $value;
+    border-right-color: $value;
+  }
+  @include tw-mixins($selector: border-y-#{$name}) {
+    border-top-color: $value;
+    border-bottom-color: $value;
+  }
+  @include tw-mixins($selector: border-#{$name}) {
+    border-color: $value;
+  }
+}
 
 /*
  * Border style
 **/
-@include tw-border-style(solid, solid);
-@include tw-border-style(dashed, dashed);
-@include tw-border-style(dotted, dotted);
-@include tw-border-style(double, double);
-@include tw-border-style(none, none);
+@each $name, $value in map.get($border, "style") {
+  @include tw-mixins($selector: border-l-#{$name}) {
+    border-left-style: $value;
+  }
+  @include tw-mixins($selector: border-r-#{$name}) {
+    border-right-style: $value;
+  }
+  @include tw-mixins($selector: border-t-#{$name}) {
+    border-top-style: $value;
+  }
+  @include tw-mixins($selector: border-b-#{$name}) {
+    border-bottom-style: $value;
+  }
+  @include tw-mixins($selector: border-x-#{$name}) {
+    border-left-style: $value;
+    border-right-style: $value;
+  }
+  @include tw-mixins($selector: border-y-#{$name}) {
+    border-top-style: $value;
+    border-bottom-style: $value;
+  }
+  @include tw-mixins($selector: border-#{$name}) {
+    border-style: $value;
+  }
+}
+
+/*
+ * Border radius
+**/
+@each $name, $value in map.get($border, "radius") {
+  @include tw-mixins($selector: rounded-tl-#{$name}) {
+    border-top-left-radius: $value;
+  }
+  @include tw-mixins($selector: rounded-tr-#{$name}) {
+    border-top-right-radius: $value;
+  }
+  @include tw-mixins($selector: rounded-bl-#{$name}) {
+    border-bottom-left-radius: $value;
+  }
+  @include tw-mixins($selector: rounded-br-#{$name}) {
+    border-bottom-right-radius: $value;
+  }
+  @include tw-mixins($selector: rounded-t-#{$name}) {
+    border-top-left-radius: $value;
+    border-top-right-radius: $value;
+  }
+  @include tw-mixins($selector: rounded-b-#{$name}) {
+    border-bottom-left-radius: $value;
+    border-bottom-right-radius: $value;
+  }
+  @include tw-mixins($selector: rounded-l-#{$name}) {
+    border-top-left-radius: $value;
+    border-bottom-left-radius: $value;
+  }
+  @include tw-mixins($selector: rounded-r-#{$name}) {
+    border-top-right-radius: $value;
+    border-bottom-right-radius: $value;
+  }
+  @include tw-mixins($selector: rounded-#{$name}) {
+    border-radius: $value;
+  }
+}
+
+/*
+ * Border width
+**/
+@each $name, $value in map.get($border, "width") {
+  @include tw-mixins($selector: border-l-#{$name}) {
+    border-left-width: $value;
+  }
+  @include tw-mixins($selector: border-r-#{$name}) {
+    border-right-width: $value;
+  }
+  @include tw-mixins($selector: border-t-#{$name}) {
+    border-top-width: $value;
+  }
+  @include tw-mixins($selector: border-b-#{$name}) {
+    border-bottom-width: $value;
+  }
+  @include tw-mixins($selector: border-x-#{$name}) {
+    border-left-width: $value;
+    border-right-width: $value;
+  }
+  @include tw-mixins($selector: border-y-#{$name}) {
+    border-top-width: $value;
+    border-bottom-width: $value;
+  }
+  @include tw-mixins($selector: border-#{$name}) {
+    border-width: $value;
+  }
+}

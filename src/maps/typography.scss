@@ -1,0 +1,190 @@
+/*
+ * Font size
+**/
+$font: (
+  "size": (
+    "size": $font-size,
+    "larger": $font-size-larger,
+    "larg": $font-size-larg,
+    "small": $font-size-small,
+    "mini": $font-size-mini,
+    "h1": $h1,
+    "h2": $h2,
+    "h3": $h3,
+    "h4": $h4,
+    "h5": $h5,
+    "h6": $h6,
+  ),
+);
+@for $var from 12 to 33 {
+  $font: (
+    "size":
+      map.merge(
+        map.get($font, "size"),
+        (
+          "#{$var}": #{($var * 1px) / $font-size * 1rem},
+        )
+      ),
+  );
+}
+
+/*
+ * Font family
+**/
+$font: map.merge(
+  $font,
+  (
+    "family": (
+      "sans": $font-sans,
+      "yahei": $font-yahei,
+      "simsun": $font-simsun,
+      "fangsong": $font-fangsong,
+      "kaiti": $font-kaiti,
+    ),
+  )
+);
+
+/*
+ * Font weight
+**/
+$font: map.merge(
+  $font,
+  (
+    "weight": (
+      "thin": 100,
+      "extralight": 100,
+      "light": 100,
+      "normal": 100,
+      "medium": 100,
+      "semibold": 100,
+      "bold": 100,
+      "extrabold": 100,
+      "black": 100,
+    ),
+  )
+);
+
+/*
+ * Font style
+**/
+$font: map.merge(
+  $font,
+  (
+    "style": (
+      "italic": italic,
+      "not-italic": normal,
+    ),
+  )
+);
+
+/*
+ * Texts
+**/
+$text: (
+  "color": (
+    "color": $text-color,
+    "primary": $text-color-primary,
+    "dark": $text-color-dark,
+    "darker": $text-color-darker,
+    "light": $text-color-light,
+    "lighter": $text-color-lighter,
+    "black": $text-color-black,
+    "white": $text-color-white,
+    "success": $text-color-success,
+    "info": $text-color-info,
+    "warning": $text-color-warning,
+    "error": $text-color-error,
+  ),
+  "align": (
+    "left": left,
+    "right": right,
+    "center": center,
+    "justify": justify,
+  ),
+  "letter-spaceing": (
+    "least": -999px,
+    "tighter": -0.05em,
+    "tight": -0.025em,
+    "normal": normal,
+    "wide": 0.025em,
+    "wider": 0.05em,
+    "widest": 0.1em,
+  ),
+  "line-height": (
+    "none": 1,
+    "tight": 1.25,
+    "snug": 1.375,
+    "normal": 1.5,
+    "relaxed": 1.625,
+    "loose": 2,
+  ),
+  "decoration": (
+    "underline": underline,
+    "line-through": line-through,
+    "no-underline": none,
+  ),
+  "transform": (
+    "uppercase": uppercase,
+    "lowercase": lowercase,
+    "capitalize": capitalize,
+    "normal-case": none,
+    "ellipsis": ellipsis,
+    "clip": clip,
+  ),
+  "vertical-align": (
+    "top": top,
+    "middle": middle,
+    "bottom": bottom,
+    "baseline": baseline,
+    "text-top": text-top,
+    "text-bottom": text-bottom,
+    "sub": sub,
+    "super": super,
+  ),
+  "white-space": (
+    "normal": normal,
+    "nowrap": nowrap,
+    "pre": pre,
+    "pre-line": pre-line,
+    "pre-wrap": pre-wrap,
+  ),
+  "word-break": (
+    "normal": normal,
+    "words": word,
+    "all": all,
+  ),
+);
+/*
+ * Text overflow 
+ * Values through 1 ~ 10
+**/
+$text-overflow: ();
+@for $name from 1 through 10 {
+  $text-overflow: map.merge(
+    $text-overflow,
+    (
+      "#{$name}": $name,
+    )
+  );
+}
+$text: map.merge(
+  $text,
+  (
+    "overflow": $text-overflow,
+  )
+);
+
+/*
+ * List
+**/
+$list: (
+  "style": (
+    "none": none,
+    "disc": disc,
+    "decimal": decimal,
+    "circle": circle,
+    "square": square,
+    "inside": inside,
+    "outside": outside,
+  ),
+);

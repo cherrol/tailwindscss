@@ -1,0 +1,25 @@
+$transform: (
+  "origin": (
+    "center": center,
+    "left": left,
+    "right": right,
+    "top": top,
+    "top-left": top left,
+    "top-right": top right,
+    "bottom-left": bottom left,
+    "bottom-right": bottom right,
+  ),
+  "scale": (
+    "105": 1.05,
+  ),
+  "rotate": (
+    "90": 90deg,
+    "180": 180deg,
+    "360": 360deg,
+  ),
+  "translate": (
+    "0": 0,
+    "1\\/2": 50%,
+    "full": 100%,
+  ),
+);

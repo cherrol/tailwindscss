@@ -1,55 +1,42 @@
 /*
  * Mixins
  * $selector    选择器
- * $property    属性
- * [$value]     属性值
- * [$hover]     hover选择器
- * [$focus]     focus选择器
- * [$screens]   媒体查询选择器
+ * $options     一些常用的 effect 配置，例如 hover screen focus 等等
 **/
-@mixin tw-mixins($selector, $properties-values, $hover: false, $focus: false, $screens: false) {
-  @if $screens == false {
-    .#{$selector} {
-      @each $property, $value in $properties-values {
-        #{$property}: $value;
+@mixin tw-mixins($selector, $options...) {
+  $option: meta.keywords($options);
+  $screen: map.get($option, "screen");
+
+  @if $screen != null {
+    .#{$screen}#{$separator}#{$selector} {
+      @content;
+    }
+
+    @if map.get($option, "hover") == true {
+      .#{$screen}#{$separator}hover#{$separator}#{$selector}:hover {
+        @content;
       }
     }
 
-    @if $hover {
-      .hover#{$separator}#{$selector}:hover {
-        @each $property, $value in $properties-values {
-          #{$property}: $value;
-        }
-      }
-    }
-
-    @if $focus {
-      .focus#{$separator}#{$selector}:focus {
-        @each $property, $value in $properties-values {
-          #{$property}: $value;
-        }
+    @if map.get($option, "focus") == true {
+      .#{$screen}#{$separator}focus#{$separator}#{$selector}:focus {
+        @content;
       }
     }
   } @else {
-    .#{$screens}#{$separator}#{$selector} {
-      @each $property, $value in $properties-values {
-        #{$property}: $value;
+    .#{$selector} {
+      @content;
+    }
+
+    @if map.get($option, "hover") == true {
+      .hover#{$separator}#{$selector}:hover {
+        @content;
       }
     }
 
-    @if $hover {
-      .#{$screens}#{$separator}hover#{$separator}#{$selector}:hover {
-        @each $property, $value in $properties-values {
-          #{$property}: $value;
-        }
-      }
-    }
-
-    @if $focus {
-      .#{$screens}#{$separator}focus#{$separator}#{$selector}:focus {
-        @each $property, $value in $properties-values {
-          #{$property}: $value;
-        }
+    @if map.get($option, "focus") == true {
+      .focus#{$separator}#{$selector}:focus {
+        @content;
       }
     }
   }

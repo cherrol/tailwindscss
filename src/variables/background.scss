@@ -1,0 +1,24 @@
+/*
+ * Background color
+**/
+$bg-base: #fff;
+$bg-primary: $color-primary;
+$bg-dark: $color-dark;
+$bg-darker: $color-darker;
+$bg-light: $color-light;
+$bg-lighter: $color-lighter;
+$bg-black: $color-black;
+$bg-white: $color-white;
+$bg-success: lighten($color-success, 33.5%);
+$bg-info: lighten($color-info, 33.5%);
+$bg-warning: lighten($color-warning, 33.5%);
+$bg-error: lighten($color-error, 33.5%);
+
+/*
+ * Status background color
+**/
+$color-primary-bg: $bg-primary;
+$color-success-bg: $bg-success;
+$color-info-bg: $bg-info;
+$color-warning-bg: $bg-warning;
+$color-error-bg: $bg-error;

@@ -1,0 +1,88 @@
+$layout: (
+  "box-sizing": (
+    "border": border-box,
+    "content": content-box,
+  ),
+  "display": (
+    "hidden": none,
+    "d-block": block,
+    "display-block": block,
+    "inline": inline,
+    "inline-block": inline-block,
+    "flex": flex,
+    "inline-flex": inline-flex,
+    "table": table,
+    "inline-table": inline-table,
+  ),
+  "float": (
+    "left": left,
+    "right": right,
+    "none": none,
+  ),
+  "clear": (
+    "left": left,
+    "right": right,
+    "both": both,
+    "none": none,
+  ),
+  "object-fit": (
+    "contain": contain,
+    "cover": cover,
+    "fill": fill,
+    "none": none,
+    "scale-down": scale-down,
+  ),
+  "object-position": (
+    "bottom": bottom,
+    "center": center,
+    "left": left,
+    "right": right,
+    "top": top,
+    "left-bottom": left bottom,
+    "left-top": left top,
+    "right-bottom": right bottom,
+    "right-top": right top,
+  ),
+  "overflow": (
+    "auto": auto,
+    "hidden": hidden,
+    "scroll": scroll,
+    "visible": visible,
+  ),
+  "position": (
+    "static": static,
+    "fixed": fixed,
+    "absolute": absolute,
+    "relative": relative,
+    "sticky": sticky,
+  ),
+  "inset": (
+    "0": 0px,
+    "auto": auto,
+    "1\\/2": 50%,
+    "full": 100%,
+  ),
+  "visibility": (
+    "visible": visible,
+    "invisible": hidden,
+  ),
+);
+
+$layout-zindex: (
+  "100": 100,
+  "auto": auto,
+);
+@for $var from 0 to 11 {
+  $layout-zindex: map.merge(
+    $layout-zindex,
+    (
+      "#{$var}": $var,
+    )
+  );
+}
+$layout: map.merge(
+  $layout,
+  (
+    "zindex": $layout-zindex,
+  )
+);

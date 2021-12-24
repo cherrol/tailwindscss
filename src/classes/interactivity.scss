@@ -1,38 +1,45 @@
 /*
  * Cursor
 **/
-@include tw-corsor(auto, auto);
-@include tw-corsor(default, default);
-@include tw-corsor(pointer, pointer);
-@include tw-corsor(text, text);
-@include tw-corsor(move, move);
-@include tw-corsor(not-allowed, not-allowed);
+@each $name, $value in map.get($interactivity, "cursor") {
+  @include tw-mixins($selector: cursor-#{$name}) {
+    cursor: $value;
+  }
+}
 
 /*
 * Outline
 **/
-@include tw-outline(none, transparent, $hover: true, $focus: true);
-@include tw-outline(white, #ffffff, $hover: true, $focus: true);
-@include tw-outline(black, #000000, $hover: true, $focus: true);
+@each $name, $value in map.get($interactivity, "outline") {
+  @include tw-mixins($selector: outline-#{$name}, $hover: true, $focus: true) {
+    outline: $outline-size-default solid $value;
+    outline-offset: $outline-offset-default;
+  }
+}
 
 /*
 * Pointer events
 **/
-@include tw-pointer-events(none, none);
-@include tw-pointer-events(auto, auto);
+@each $name, $value in map.get($interactivity, "pointer-events") {
+  @include tw-mixins($selector: pointer-events-#{$name}) {
+    pointer-events: $value;
+  }
+}
 
 /*
 * Resize
 **/
-@include tw-resize(resize-none, none);
-@include tw-resize(resize-y, vertical);
-@include tw-resize(resize-x, horizontal);
-@include tw-resize(resize, both);
+@each $name, $value in map.get($interactivity, "resize") {
+  @include tw-mixins($selector: #{$name}) {
+    resize: $value;
+  }
+}
 
 /*
 * User select
 **/
-@include tw-user-select(none, none);
-@include tw-user-select(text, text);
-@include tw-user-select(all, all);
-@include tw-user-select(auto, auto);
+@each $name, $value in map.get($interactivity, "user-select") {
+  @include tw-mixins($selector: select-#{$name}) {
+    user-select: $value;
+  }
+}

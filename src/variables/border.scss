@@ -1,0 +1,12 @@
+$border-color: rgba(25, 25, 25, .32);;
+$border-color-primary: $color-primary;
+$border-color-dark: $color-dark;
+$border-color-darker: $color-darker;
+$border-color-light: $color-light;
+$border-color-lighter: $color-lighter;
+$border-color-black: $color-black;
+$border-color-white: $color-white;
+$border-color-success: lighten($color-success, 33.5%);
+$border-color-info: lighten($color-info, 33.5%);
+$border-color-warning: lighten($color-warning, 33.5%);
+$border-color-error: lighten($color-error, 33.5%);

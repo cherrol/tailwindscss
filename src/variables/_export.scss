@@ -1,4 +1,19 @@
-@import './break-points.scss';
-@import './color.scss';
-@import './text.scss';
-@import './tailwind.scss';
+/*
+ * Config
+**/
+@import "./_config.scss";
+
+/*
+ * Base Variables
+**/
+@import "./color.scss";
+
+/*
+ * Variables
+**/
+@import "./animates.scss";
+@import "./background.scss";
+@import "./border.scss";
+@import "./break-points.scss";
+@import './interactivity.scss';
+@import "./typography.scss";

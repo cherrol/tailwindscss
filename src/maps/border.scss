@@ -1,0 +1,57 @@
+$border: (
+  "color": (
+    "base": $border-color,
+    "primary": $border-color-primary,
+    "dark": $border-color-dark,
+    "darker": $border-color-darker,
+    "light": $border-color-light,
+    "lighter": $border-color-lighter,
+    "black": $border-color-black,
+    "white": $border-color-white,
+    "success": $border-color-success,
+    "info": $border-color-info,
+    "warning": $border-color-warning,
+    "error": $border-color-error,
+  ),
+  "style": (
+    "solid": solid,
+    "dashed": dashed,
+    "dotted": dotted,
+    "double": double,
+    "none": none,
+  ),
+);
+
+$border-radius: (
+  "full": 9999px,
+);
+@for $var from 1 to 6 {
+  $border-radius: map.merge(
+    $border-radius,
+    (
+      "#{$var}": #{$var}px,
+    )
+  );
+}
+$border: map.merge(
+  $border,
+  (
+    "radius": $border-radius,
+  )
+);
+
+$border-width: ();
+@for $var from 0 to 7 {
+  $border-width: map.merge(
+    $border-width,
+    (
+      "#{$var}": #{$var}px,
+    )
+  );
+}
+$border: map.merge(
+  $border,
+  (
+    "width": $border-width,
+  )
+);

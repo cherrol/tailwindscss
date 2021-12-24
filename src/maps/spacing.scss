@@ -1,0 +1,77 @@
+$spacing: (
+  "margin": (
+    "auto": auto,
+    "full": 100%,
+  ),
+  "padding": (
+    "full": 100%,
+  ),
+);
+
+@for $var from 1 through 11 {
+  $spacing: (
+    "margin": map.merge(
+      map.get($spacing, "margin"),
+      (
+        "#{$var}\\/12": #{$var / 12 * 100%},
+      )
+    ),
+    "padding": map.merge(
+      map.get($spacing, "margin"),
+      (
+        "#{$var}\\/12": #{$var / 12 * 100%},
+      )
+    ),
+  );
+}
+
+@for $var from 1 through 4 {
+  $spacing: (
+    "margin": map.merge(
+      map.get($spacing, "margin"),
+      (
+        "#{$var}\\/5": #{$var / 5 * 100%},
+      )
+    ),
+    "padding": map.merge(
+      map.get($spacing, "margin"),
+      (
+        "#{$var}\\/5": #{$var / 5 * 100%},
+      )
+    ),
+  );
+}
+
+@for $var from 0 through 24 {
+  $spacing: (
+    "margin": map.merge(
+      map.get($spacing, "margin"),
+      (
+        "#{$var * 5}": #{$var * 5}px,
+      )
+    ),
+    "padding": map.merge(
+      map.get($spacing, "margin"),
+      (
+        "#{$var * 5}": #{$var * 5}px,
+      )
+    ),
+  );
+}
+
+$spacing: map.merge(
+  $spacing,
+  (
+    "ratio": (
+      "1\\/2": calc(1 / 2 * 100%),
+      "9\\/16": calc(9 / 16 * 100%),
+      "2\\/3": calc(2 / 3 * 100%),
+      "3\\/4": calc(3 / 4 * 100%),
+      "1\\/1": calc(1 / 1 * 100%),
+      "5\\/4": calc(5 / 4 * 100%),
+      "3\\/2": calc(3 / 2 * 100%),
+      "7\\/4": calc(7 / 4 * 100%),
+      "2\\/1": calc(2 / 1 * 100%),
+    )
+  )
+);

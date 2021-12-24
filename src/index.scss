@@ -1,14 +1,26 @@
 /*
+ * Scss Modules
+**/
+@use "sass:math";
+@use "sass:map";
+@use "sass:list";
+@use "sass:meta";
+
+/*
  * Variables
 **/
-@import './variables/_export.scss';
+@import "./variables/export";
+
+/*
+ * Maps
+**/
+@import "./maps/export";
 
 /*
  * Mixins
 **/
-@import './mixins/_export.scss';
-
+@import "./mixins/export";
 /*
  * Classes
 **/
-@import './classes/_export.scss';
+@import "./classes/export";

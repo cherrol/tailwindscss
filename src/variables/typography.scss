@@ -1,0 +1,50 @@
+/*
+ * Font size
+**/
+$font-size: 14px;
+$font-size-larger: #{24px / $font-size * 1rem};
+$font-size-larg: #{18px / $font-size * 1rem};
+$font-size-small: #{13px / $font-size * 1rem};
+$font-size-mini: #{12px / $font-size * 1rem};
+
+/*
+ * Heading size
+**/
+$h1: #{36px / $font-size * 1rem};
+$h2: #{30px / $font-size * 1rem};
+$h3: #{24px / $font-size * 1rem};
+$h4: #{18px / $font-size * 1rem};
+$h5: #{14px / $font-size * 1rem};
+$h6: #{12px / $font-size * 1rem};
+
+/*
+ * Font family
+**/
+$font-sans: sans-serif;
+$font-yahei: "Microsoft YaHei";
+$font-simsun: "SimSun";
+$font-fangsong: "FangSong";
+$font-kaiti: "KaiTi";
+$font-family: $font-yahei, $font-sans;
+$font-family-title: $font-family;
+
+/*
+ * Text color
+**/
+$text-color: #444444;
+$text-color-primary: $color-primary;
+$text-color-dark: $color-dark;
+$text-color-darker: $color-darker;
+$text-color-light: $color-light;
+$text-color-lighter: $color-lighter;
+$text-color-black: $color-black;
+$text-color-white: $color-white;
+$text-color-success: $color-success;
+$text-color-info: $color-info;
+$text-color-warning: $color-warning;
+$text-color-error: $color-error;
+
+/*
+ * Text overflow
+**/
+$line-height-default: 1.5;

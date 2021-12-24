@@ -1,11 +1,17 @@
 /*
  * Border collapse
 **/
-@include tw-border-collapse(collapse, collapse);
-@include tw-border-collapse(separate, separate);
+@each $name, $value in map.get($table, "border-collapse") {
+  @include tw-mixins($selector: border-#{$name}) {
+    border-collapse: $value;
+  }
+}
 
 /*
  * Table layout
 **/
-@include tw-table-layout(auto, auto);
-@include tw-table-layout(fixed, fixed);
+@each $name, $value in map.get($table, "layout") {
+  @include tw-mixins($selector: table-#{$name}) {
+    table-layout: $value;
+  }
+}

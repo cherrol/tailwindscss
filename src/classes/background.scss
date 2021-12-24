@@ -1,58 +1,58 @@
 /*
+ * background color
+**/
+@each $name, $value in map.get($background, "color") {
+  @for $var from 1 to 10 {
+    @include tw-mixins($selector: bg-#{$name}-#{$var * 10}) {
+      background-color: rgba($value, $var * 0.1);
+    }
+  }
+  @include tw-mixins($selector: bg-#{$name}) {
+    background-color: $value;
+  }
+}
+
+/*
  * backgroundd attachment
 **/
-@include tw-background-attachment(fixed, fixed);
-@include tw-background-attachment(local, local);
-@include tw-background-attachment(scroll, scroll);
+@each $name, $value in map.get($background, "attachment") {
+  @include tw-mixins($selector: bg-#{$name}) {
+    background-attachment: $value;
+  }
+}
 
 /*
  * backgroundd clip
 **/
-@include tw-background-clip(border, border-box);
-@include tw-background-clip(padding, padding-box);
-@include tw-background-clip(content, content-box);
-@include tw-background-clip(text, text);
-
-/*
- * backgroundd color with
- * $opacity 90 => 90, 80, ..., 10.
-**/
-@include tw-background-color(white, #fff, $opacity: 90, $hover: true);
-@include tw-background-color(darker, $bg-darker, $opacity: 90, $hover: true);
-@include tw-background-color(dark, $bg-dark, $opacity: 90, $hover: true);
-@include tw-background-color(primary, $site-base, $opacity: 90, $hover: true);
-@include tw-background-color(second, $site-second, $opacity: 90, $hover: true);
-@include tw-background-color(third, $site-third, $opacity: 90, $hover: true);
-@include tw-background-color(light, $bg-light, $opacity: 90, $hover: true);
-@include tw-background-color(lighter, $bg-lighter, $opacity: 90, $hover: true);
+@each $name, $value in map.get($background, "clip") {
+  @include tw-mixins($selector: bg-clip-#{$name}) {
+    background-clip: $value;
+  }
+}
 
 /*
  * backgroundd position
 **/
-@include tw-background-position(left, left);
-@include tw-background-position(right, right);
-@include tw-background-position(top, top);
-@include tw-background-position(bottom, bottom);
-@include tw-background-position(center, center);
-@include tw-background-position(left-bottom, 'left bottom');
-@include tw-background-position(left-top, 'left top');
-@include tw-background-position(right-bottom, 'right bottom');
-@include tw-background-position(right-top, 'right top');
+@each $name, $value in map.get($background, "position") {
+  @include tw-mixins($selector: bg-#{$name}) {
+    background-position: $value;
+  }
+}
 
 /*
  * backgroundd repeat
 **/
-@include tw-background-repeat(repeat, repeat);
-@include tw-background-repeat(no-repeat, no-repeat);
-@include tw-background-repeat(repeat-x, repeat-x);
-@include tw-background-repeat(repeat-y, repeat-y);
-@include tw-background-repeat(repeat-round, repeat-round);
-@include tw-background-repeat(repeat-space, repeat-space);
+@each $name, $value in map.get($background, "repeat") {
+  @include tw-mixins($selector: bg-#{$name}) {
+    background-repeat: $value;
+  }
+}
 
 /*
  * backgroundd size
 **/
-@include tw-background-size(auto, auto);
-@include tw-background-size(cover, cover);
-@include tw-background-size(contain, contain);
-@include tw-background-size(full, 100%);
+@each $name, $value in map.get($background, "size") {
+  @include tw-mixins($selector: bg-#{$name}) {
+    background-size: $value;
+  }
+}
