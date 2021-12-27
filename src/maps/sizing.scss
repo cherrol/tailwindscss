@@ -17,7 +17,7 @@ $sizing: (
     "width": map.merge(
       map.get($sizing, "width"),
       (
-        "#{$var}\\/12": #{$var / 12 * 100%},
+        "#{$var}\\/12": math.div($var, 12) * 100%,
       )
     ),
     "height": map.merge(
@@ -31,7 +31,7 @@ $sizing: (
     "width": map.merge(
       map.get($sizing, "width"),
       (
-        "#{$var}\\/5": #{$var / 5 * 100%},
+        "#{$var}\\/5":math.div($var, 5) * 100%,
       )
     ),
     "height": map.merge(

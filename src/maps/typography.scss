@@ -22,7 +22,7 @@ $font: (
       map.merge(
         map.get($font, "size"),
         (
-          "#{$var}": #{($var * 1px) / $font-size * 1rem},
+          "#{$var}": calc((#{$var}px / #{$font-size}) * 1rem),
         )
       ),
   );

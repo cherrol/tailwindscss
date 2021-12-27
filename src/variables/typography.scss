@@ -2,20 +2,20 @@
  * Font size
 **/
 $font-size: 14px;
-$font-size-larger: #{24px / $font-size * 1rem};
-$font-size-larg: #{18px / $font-size * 1rem};
-$font-size-small: #{13px / $font-size * 1rem};
-$font-size-mini: #{12px / $font-size * 1rem};
+$font-size-larger: math.div(24px,  $font-size) * 1rem;
+$font-size-larg: math.div(18px,  $font-size) * 1rem;
+$font-size-small: math.div(13px,  $font-size) * 1rem;
+$font-size-mini: math.div(12px,  $font-size) * 1rem;
 
 /*
  * Heading size
 **/
-$h1: #{36px / $font-size * 1rem};
-$h2: #{30px / $font-size * 1rem};
-$h3: #{24px / $font-size * 1rem};
-$h4: #{18px / $font-size * 1rem};
-$h5: #{14px / $font-size * 1rem};
-$h6: #{12px / $font-size * 1rem};
+$h1: math.div(36px,  $font-size) * 1rem;
+$h2: math.div(30px,  $font-size) * 1rem;
+$h3: math.div(24px,  $font-size) * 1rem;
+$h4: math.div(18px,  $font-size) * 1rem;
+$h5: math.div(14px,  $font-size) * 1rem;
+$h6: math.div(12px,  $font-size) * 1rem;
 
 /*
  * Font family

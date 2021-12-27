@@ -4,15 +4,15 @@
   "description": "",
   "main": "src/index.less",
   "scripts": {
-    "watch": "rimraf dist/ && dart-sass src/index.scss dist/index.css --watch --trace",
-    "build": "rimraf dist/ && dart-sass src/index.scss dist/index.css --no-source-map --style=compressed",
+    "watch": "rimraf dist/ && sass src/index.scss dist/index.css --watch",
+    "build": "rimraf dist/ && sass src/index.scss dist/index.css --no-source-map --style=compressed",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "dart-sass": "^1.25.0",
-    "rimraf": "^3.0.2"
+    "rimraf": "^3.0.2",
+    "sass": "^1.45.1"
   }
 }

@@ -17,7 +17,7 @@ $effects-opacity: ();
   $effects-opacity: map.merge(
     $effects-opacity,
     (
-      "#{$var * 10}": $var*0.1,
+      "#{$var * 10}": $var * 0.1,
     )
   );
 }
